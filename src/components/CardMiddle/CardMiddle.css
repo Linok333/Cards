@@ -1,0 +1,11 @@
+.card-middle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 70px ;
+  width: 360px ;
+  font-size: 1.5rem;
+}
+
+

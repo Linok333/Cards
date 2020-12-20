@@ -1,0 +1,26 @@
+.MyCard {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.h2 {
+  padding-top: 50px;
+}
+/* .reter {
+display: flex;
+justify-content: center;
+align-items: center;
+} */
+.arrows {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

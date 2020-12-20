@@ -1,0 +1,9 @@
+.CardText{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: start;
+  height: 70px ;
+  width: 180px ;
+  font-size: 1.1rem;
+}

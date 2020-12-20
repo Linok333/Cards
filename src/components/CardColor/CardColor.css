@@ -1,0 +1,124 @@
+.green:hover{
+  color: rgb(242, 245, 248);
+  background: rgb(10, 158, 17);
+}
+
+.green{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+  border-radius: 10%;
+  background-color: rgb(199, 53, 53);
+  width: 75px;
+  height: 40px;
+  text-align: center;
+  background-color: rgb(233, 217, 212);
+
+}
+.red{
+  margin: 15px;
+  border-radius: 10%;
+  width: 75px;
+  height: 40px;
+  text-align: center; 
+   background-color: rgb(235, 205, 193);
+}
+.blue{
+  margin: 15px;
+  border-radius: 10%;
+  width: 75px;
+  height: 40px;
+  text-align: center;
+  background-color: rgb(240, 212, 202);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.grey{
+  margin: 15px;
+  border-radius: 10%;
+  width: 75px;
+  height: 40px;
+  text-align: center;
+  background-color: rgb(247, 207, 207);
+}
+.black{
+  margin: 15px;
+  border-radius: 10%;
+  width: 75px;
+  height: 40px;
+  text-align: center;
+  background-color: rgb(243, 220, 212);
+}
+
+.pink{
+  margin: 15px;
+  border-radius: 10%;
+  width: 75px;
+  height: 40px;
+  text-align: center;
+  background-color: rgb(243, 206, 238);
+
+}
+.yellow{
+  margin: 15px;
+  border-radius: 10%;
+  width: 75px;
+  height: 40px;
+  text-align: center;
+  background-color: rgb(223, 197, 188);
+
+}
+.orange{
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+  border-radius: 10%;
+  width: 75px;
+  height: 40px;
+  text-align: center;
+  background-color: rgb(243, 192, 192);
+}
+.red:hover{
+  color: rgb(242, 245, 248);
+  background: rgb(230, 68, 5);
+}
+.blue:hover{
+  color: rgb(242, 245, 248);
+  background: rgb(9, 101, 194);
+}
+.grey:hover{
+  color: rgb(242, 245, 248);
+  background: grey
+}
+.black:hover{
+  color: rgb(242, 245, 248);
+  background: black
+}
+.pink:hover{
+  color: rgb(242, 245, 248);
+  background: rgba(235, 14, 150, 0.486);
+}
+.yellow:hover{
+  color: rgb(8, 8, 8);
+  background: yellow
+}
+.orange:hover{
+  color: rgb(242, 245, 248);
+  background: orange
+}
+.mainColor {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  /* background-image: url('https://tinsign.ru/image/cache/data/text%20signs/7086220-690x690.jpg'); */
+}
+.cardColor {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+
+}

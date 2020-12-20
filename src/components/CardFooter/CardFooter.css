@@ -1,0 +1,6 @@
+.third {
+  display: flex;
+  height: 70px ;
+  width: 360px ;
+  flex-direction: row;
+}

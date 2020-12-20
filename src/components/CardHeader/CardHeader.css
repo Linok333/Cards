@@ -1,0 +1,7 @@
+.CardHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 70px ;
+  width: 360px ;
+}

@@ -1,0 +1,40 @@
+.MainPage{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  /* margin-top: 100px; */
+  margin-right: 3%;
+  height: 50px;
+  width: 100%;
+  background-color: rgb(137, 192, 218);
+}
+.card {
+  margin-top: 2%;
+  background: none;
+  border: none;
+  text-decoration: none;
+  color: #000;
+  height: 100%;
+  width: 70px;
+  margin: 10px;
+  text-align: center;
+
+}
+.second {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+ }
+.card1 {
+display: flex;
+justify-content: flex-start;
+ width: 50%;
+ height: 100%;
+}
+.card:hover{
+  color: rgb(250, 247, 247);
+  background-color: rgb(31, 173, 184);
+  border-radius: 4%;
+ }
