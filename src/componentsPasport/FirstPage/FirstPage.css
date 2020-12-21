@@ -1,0 +1,14 @@
+.first {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  border-radius: 7px;
+  background-image: url('https://image.freepik.com/free-vector/elegant-white-texture-background_23-2148431731.jpg');
+ }
+ .person {
+  margin-top: 40px;
+  /* font-family: 'Frijole', cursive; */
+ }

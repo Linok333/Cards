@@ -1,0 +1,33 @@
+.secondPage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  border-radius: 7px;
+  /* background-image: url('https://image.freepik.com/free-vector/white-elgant-texture-background-concept_23-2148447314.jpg') ; */
+  background-image: url('https://image.freepik.com/free-vector/elegant-white-texture-background_23-2148431731.jpg');
+}
+.priz {
+  /* margin-top: 15px; */
+  padding-top: 15px;
+    /* background-color: rgb(228, 200, 194) ; */
+}
+
+.cherk {
+  margin-top: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.border-line{
+  border-bottom: 1.5px solid rgb(7, 7, 7);
+  text-align: center;
+  width: 350px;
+  margin: 12px;
+  /* font-family: 'Caveat', cursive; */
+  font-family: 'Pacifico', cursive;
+
+
+}

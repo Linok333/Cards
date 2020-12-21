@@ -8,12 +8,10 @@ import store from './store';
 import MainImg from './components/MainImg';
 import CardsPage from './pages/CardsPage';
 import MyCard from './pages/MyCard';
-
+import PasportPage from './pages/PasportPage'
 import AddFormPage from './pages/AddFormPage';
 import MainPage from './pages/Main-page';
-import Arrow  from './Arrow'
-import Arrows from './Arrow';
-import Card from './components/Card/card';
+
 export  const MyCards1Context = React.createContext();
 
   const App = () => {
@@ -23,6 +21,7 @@ export  const MyCards1Context = React.createContext();
         <Router >
           <MainPage/>
           <Route path="/MyCard/:id/:name"   component={MyCard}/>
+          <Route path="/Pasports" exact component={PasportPage}/>
           <Route path="/" exact component={MainImg}/>
           <Route path="/Cards/:data" component={CardsPage} />                 
           <Route path="/Create" component={AddFormPage} />

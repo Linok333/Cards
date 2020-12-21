@@ -1,0 +1,73 @@
+.ma {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+.cusom {
+  font-family: 'Candal', sans-serif;
+}
+
+
+.box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 900px;
+  height:550px;
+  margin-top: 50px;
+}
+.firstPage {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+ width: 50%;
+ height: 100%;
+ /* background-image: url('https://image.freepik.com/free-vector/white-elgant-texture-background-concept_23-2148447314.jpg') ; */
+ background-image: url('https://image.freepik.com/free-vector/elegant-white-texture-background_23-2148431731.jpg');
+}
+.secondPage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  /* background-image: url('https://image.freepik.com/free-vector/white-elgant-texture-background-concept_23-2148447314.jpg') ; */
+  background-image: url('https://image.freepik.com/free-vector/elegant-white-texture-background_23-2148431731.jpg');
+}
+
+.person {
+ margin-top: 50px;
+ /* font-family: 'Frijole', cursive; */
+}
+.prapor {
+
+}
+.poloca {
+  background-color: rgb(99, 97, 97);
+  width: 3px;
+  height: 100%;
+}
+.text {
+ /* font-family: 'Frijole', cursive; */
+ /* font-family: 'Codystar', cursive; */
+ font-family: 'Frijole', cursive;
+}
+.priz {
+  /* margin-top: 15px; */
+  padding-top: 15px;
+    /* background-color: rgb(228, 200, 194) ; */
+}
+.trend {
+ display: flex;
+ justify-content: center;
+ flex-direction: column;
+}
+.cherk {
+  margin-top: 2px;
+}

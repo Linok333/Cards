@@ -5,8 +5,11 @@ import { COLOR_FILTER } from "../action/actionTypes";
 import { ON_SEARCH_CHANGE } from "../action/actionTypes";
 import { CHANGE_COLOR } from "../action/actionTypes";
  
+
  
- 
+
+
+
  const initialState = { 
     dataMain: [
       { cardNumber: '1111 8641 8458 9999', cardType: 'Для виплат', bankName: 'ПриватБанк', expiredData: '05/24',  typeName: 'VISA', color: 'red', id:101},
@@ -19,7 +22,44 @@ import { CHANGE_COLOR } from "../action/actionTypes";
     { cardNumber: '3333 8641 8458 9999', cardType: 'Для виплат', bankName: 'ПриватБанк', expiredData: '05/24',  typeName: 'VISA', color: 'red', id:103},
     { cardNumber: '4444 6661 8888 9999', cardType: 'Юніор',      bankName: 'АвальБанк',  expiredData: '04/20',  typeName: 'VISA', color: 'green', id:104},],
     newColor: ['yellow', 'black', 'grey', 'orange', 'red', 'blue', 'pink', 'green'],
-    string: ''
+    string: '',
+    pasport:  [
+      {firstName: "Anhelina", 
+       surName: "Каташинська", 
+       middleName: "Олександрівна",
+       birthday: "27 серпня 2003р",
+       sex: "Жінка",
+       town: "c.Брохвичі",
+       region: "Вінницької обл",
+       image: "https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_boss_client_male_person_user_work-512.png"
+
+     },
+    //  image: https://image.freepik.com/free-vector/avatar-smiling-boy-facial-expression-icon-isolated-from-white-background_102172-300.jpg
+   // https://png.pngtree.com/png-clipart/20190614/original/pngtree-boy-laugh-icon-png-image_3732084.jpg
+    // https://cdn2.iconfinder.com/data/icons/cartoon-avatars/128/Avatars_asian_woman-512.png
+   // https://cdn3.iconfinder.com/data/icons/business-avatars/128/avatar-01-512.png
+    {firstName: "Lina", 
+     surName: "Каташинська", 
+     middleName: "Олександрівна",
+     birthday: "27 серпня 2003р",
+     sex: "Жінка",
+     town: "c.Брохвичі",
+     region: "Вінницької обл",
+     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFG4Yzp-rmVaK4Z_0jQe9GLu1vkRVsstgsVQ&usqp=CAU"
+     },
+   
+   {firstName: "Dima", 
+   surName: "Каташинська", 
+   middleName: "Олександрівна",
+   birthday: "27 серпня 2003р",
+   sex: "Жінка",
+   town: "c.Брохвичі",
+   region: "Вінницької обл",
+   image: "https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_client_male_person_user_work_sport_beard_team_glasses-512.png"
+
+   }
+    ]
+  
   }
 
   const changeCardColor = (id, state) => {
