@@ -3,3 +3,17 @@
   justify-content: center;
   margin-top: 15px;
 }
+.index2 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 90%;
+  top: 90p;
+  position: fixed;
+}
+
+.client {
+  position: fixed;
+  top: 850px;
+  left: 1600px;
+}

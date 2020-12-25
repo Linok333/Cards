@@ -6,9 +6,20 @@ import { withRouter } from "react-router";
 export const MyIDContext = React.createContext();
 export const MyItemContext = React.createContext();
 
- const CardList = ({data, changeColor, deleteCards}) => { 
-  const elements = data.map((item) => {
-      return (
+ const CardList = ({data, changeColor, deleteCards, cards, pasport, clientsArray, strId}) => {  
+
+  let arrayCards;
+  if (!strId) {
+    return "Please create your first Card!"
+  }
+  clientsArray.map((client) => {
+    if (client.id === strId) {
+      arrayCards = client.cards
+    } 
+  })
+
+  const elements =  arrayCards.map((item) => {
+    return (
           <div>
           <MyIDContext.Provider value={item.id}>
             <MyItemContext.Provider value={item}>
@@ -29,14 +40,21 @@ export const MyItemContext = React.createContext();
     
     };   
 
-    const mapStateToProps = ({data}) => {
+    const mapStateToProps = ({  pasport, strId}) => {
+      let clientsArray = pasport.map((pass) => {
+        return pass
+      })
       return {
-        data
+        clientsArray,
+        strId
       } 
     };
     
     const mapDispatchToProps = (dispatch) => {
-     return {}
+     return {
+      // pasportId: (id) => dispatch(pasportId(id))
+         
+     }
     };
     
     // const Arrows = withRouter(Arrow);

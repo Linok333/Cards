@@ -9,6 +9,7 @@ import { deleteCards } from '../../action';
 import { changeColor } from '../../action';
 import { withRouter } from 'react-router-dom';
 import Arrows from '../../Arrow';
+import { pasportId } from '../../action';
 
 const CardsPage = ({changeColor, deleteCards, history, location, match}) => {
   return (
@@ -35,7 +36,7 @@ const mapDispatchToProps = (dispatch) => {
   return { 
    changeColor: (id) => dispatch(changeColor(id)),
    deleteCards: (id) => dispatch(deleteCards(id))
-
+  
   }
 };
 

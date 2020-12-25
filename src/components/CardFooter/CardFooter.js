@@ -19,7 +19,7 @@ const CardFooter = ({deleteCards, item}) => {
        <div className="third" >
           <TypeName item={item} />
           <ExpiredData expired={normalizeExpiredDate(item.expiredData)}/>
-          <Sign deleteCards={(id) =>  deleteCards(item.id)} />
+          <Sign deleteCards={() =>  deleteCards(item.id)} />
        </div>
   );
 

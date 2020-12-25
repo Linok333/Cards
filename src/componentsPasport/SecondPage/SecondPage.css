@@ -11,7 +11,7 @@
 }
 .priz {
   /* margin-top: 15px; */
-  padding-top: 15px;
+  /* padding-top: 15px; */
     /* background-color: rgb(228, 200, 194) ; */
 }
 
@@ -26,8 +26,27 @@
   text-align: center;
   width: 350px;
   margin: 12px;
-  /* font-family: 'Caveat', cursive; */
   font-family: 'Pacifico', cursive;
-
-
 }
+.indexx {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 115%;
+  height: 10px;
+  padding-top: 160px;
+}
+.plus {
+ position: relative;
+ bottom: 10px;
+ right: -225px;
+}
+.cod {
+  margin-top: 50px;
+}
+
+.text1 {
+  /* font-family: 'Frijole', cursive; */
+  /* font-family: 'Codystar', cursive; */
+  font-family: 'Frijole', cursive;
+ }

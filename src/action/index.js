@@ -28,6 +28,7 @@ let onSearch = (str) => {
  }
 
  let colorFilter = (color) => {
+  console.log("COLOR", color)
   return {
      type: COLOR_FILTER,
      payload: color
@@ -50,11 +51,20 @@ let onSearch = (str) => {
 
    } 
  }
+
+
+let pasportId = (id) => {
+  return {
+     type: 'PASPORT_ID',
+     payload: id,
+  } 
+}
 export {
   changeColor,
   deleteCards,
   onSearch, 
   colorFilter, 
   addCard,
-  updateeCard
+  updateeCard,
+  pasportId
 };

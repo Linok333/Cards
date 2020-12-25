@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 15px;
+  /* margin-top: 50px; */
 }
 
 .cusom {
@@ -17,7 +17,7 @@
   align-items: center;
   flex-direction: row;
   width: 900px;
-  height:550px;
+  height:570px;
   margin-top: 50px;
 }
 .firstPage {
@@ -53,11 +53,7 @@
   width: 3px;
   height: 100%;
 }
-.text {
- /* font-family: 'Frijole', cursive; */
- /* font-family: 'Codystar', cursive; */
- font-family: 'Frijole', cursive;
-}
+
 .priz {
   /* margin-top: 15px; */
   padding-top: 15px;

@@ -9,7 +9,7 @@ import { addCard } from '../../action';
  const Card = ({changeColor, item, deleteCards, history, match}) => { 
   return (
       <div className={"card-style"} style={{backgroundColor: item.color}}>
-        <CardHeader  item={item} changeColor={(id) => changeColor(item.id)} />
+        <CardHeader  item={item} changeColor={() => changeColor(item.id)} />
         <CardMiddle item={item} id={match.params.id}/>
         <CardFooter  item={item} deleteCards ={(id) => deleteCards(id)} />
       </div>

@@ -3,15 +3,16 @@ import { connect } from 'react-redux';
 import { withRouter } from "react-router";
 import Pasport from '../Pasport'
 
- const PasportList = ({pasport}) => { 
+const PasportList = ({pasport, pasportId}) => { 
   const elements = pasport.map((item) => {
-      return (
-          <div>
-            < Pasport item={item}  />
-          </div>
-        );
-    });
     return (
+      <div>
+        <Pasport item={item} pasportId={(id) => pasportId(id)}/>
+      </div>
+    );
+  });
+    
+  return (
       <div>
           { elements }
       </div>
