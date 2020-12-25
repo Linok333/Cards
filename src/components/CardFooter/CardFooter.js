@@ -1,28 +1,29 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import ExpiredData from './ExpiredData';
 import TypeName from './TypeName';
 import Sign from './Sign';
 import './CardFooter.css';
-import { MyItemContext } from '../CardList/CardList'
+import PropTypes from 'prop-types';
 
-const CardFooter = ({deleteCards, item}) => {  
-  // const item = useContext(MyItemContext)
-  
-  let normalizeExpiredDate = (str) =>  {
-    if (str.includes('/')) {
-      return str;
-    }
-    return `${str.split('-')[1]}/${str.split('-')[0].slice(-2)}`;
-  }
+const CardFooter = ({ deleteCards, item }) => {
+	const normalizeExpiredDate = (str) => {
+		if (str.includes('/')) {
+			return str;
+		}
+		return `${str.split('-')[1]}/${str.split('-')[0].slice(-2)}`;
+	}
 
-  return (
-       <div className="third" >
-          <TypeName item={item} />
-          <ExpiredData expired={normalizeExpiredDate(item.expiredData)}/>
-          <Sign deleteCards={() =>  deleteCards(item.id)} />
-       </div>
-  );
+	return (
+		<div className="third" >
+			<TypeName item={item} />
+			<ExpiredData expired={normalizeExpiredDate(item.expiredData)}/>
+			<Sign deleteCards={() => deleteCards(item.id)} />
+		</div>
+	);
+}
 
-  }
-export default  CardFooter
-
+CardFooter.propTypes = {
+	item: PropTypes.object,
+	deleteCards: PropTypes.func,
+}
+export default CardFooter

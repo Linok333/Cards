@@ -1,44 +1,42 @@
-import React, {useState, useContext} from 'react'
+import React from 'react'
 import SearchCardNumber from '../../components/SearchCardNumber';
 import CardList from '../../components/CardList';
 import CardColor from '../../components/CardColor';
 import './CardsPage.css'
+import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { deleteCards } from '../../action';
-import { changeColor } from '../../action';
+import { changeColorAction, deleteCardsAction } from '../../action';
 import { withRouter } from 'react-router-dom';
 import Arrows from '../../Arrow';
-import { pasportId } from '../../action';
 
-const CardsPage = ({changeColor, deleteCards, history, location, match}) => {
-  return (
-      <div className="CardsPage">
-        <div className="main-react">
-          <Arrows  params={match.params}/>
-          <SearchCardNumber />
-          <CardList  changeColor={(id) => changeColor(id)}  deleteCards = {(id) => deleteCards(id)}/>  
-        </div>
-        <div className={"card-color"}>
-          <CardColor/>
-        </div>
-      </div> 
-  )
+const CardsPage = ({
+	changeColor, deleteCards, match,
+}) => (
+	<div className="CardsPage">
+		<div className="main-react">
+			<Arrows params={match.params}/>
+			<SearchCardNumber />
+			<CardList changeColor={(id) => changeColor(id)} deleteCards = {(id) => deleteCards(id)}/>
+		</div>
+		<div className={'card-color'}>
+			<CardColor/>
+		</div>
+	</div>
+)
+
+const mapStateToProps = ({ newColor, string }) => ({
+	newColor, string,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+	changeColor: (id) => dispatch(changeColorAction(id)),
+	deleteCards: (id) => dispatch(deleteCardsAction(id)),
+});
+
+CardsPage.propTypes = {
+	changeColor: PropTypes.func,
+	deleteCards: PropTypes.func,
+	match: PropTypes.object,
 }
-
-const mapStateToProps = ({newColor, string}) => {
-  return {
-    newColor, string
-  } 
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return { 
-   changeColor: (id) => dispatch(changeColor(id)),
-   deleteCards: (id) => dispatch(deleteCards(id))
-  
-  }
-};
-
-
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(CardsPage));

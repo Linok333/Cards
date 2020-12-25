@@ -1,70 +1,52 @@
-import { DELETE_CARD } from "./actionTypes";
-import { ADD_CARD } from "./actionTypes";
-import { COLOR_FILTER } from "./actionTypes";
-import { ON_SEARCH_CHANGE } from "./actionTypes";
-import { CHANGE_COLOR } from "./actionTypes";
+import {
+	DELETE_CARD, ADD_CARD, COLOR_FILTER, ON_SEARCH_CHANGE, CHANGE_COLOR,
+} from './actionTypes';
 
- const changeColor = (id) => {
-  return {
-    type: CHANGE_COLOR,
-    payload: id
-  }
-};
+const changeColorAction = (id) => ({
+	type: CHANGE_COLOR,
+	payload: id,
+});
 
-let deleteCards = (id) => {
-  return {
-     type: DELETE_CARD,
-     payload: id
-   } 
+const deleteCardsAction = (id) => ({
+	type: DELETE_CARD,
+	payload: id,
+})
 
+const onSearchAction = (str) => ({
+	type: ON_SEARCH_CHANGE,
+	payload: str,
+})
+
+const colorFilterAction = (color) => {
+	console.log('COLOR', color)
+	return {
+		type: COLOR_FILTER,
+		payload: color,
+	}
 }
 
-let onSearch = (str) => {
-  return {
-     type: ON_SEARCH_CHANGE,
-     payload: str
-   } 
- 
- }
+const addCardAction = (objectCard) => ({
+	type: ADD_CARD,
+	payload: objectCard,
+})
 
- let colorFilter = (color) => {
-  console.log("COLOR", color)
-  return {
-     type: COLOR_FILTER,
-     payload: color
-   } 
- 
- }
+const updateeCardAction = (id, obj) => ({
+	type: 'UPDATE_CARD',
+	id,
+	obj,
 
- let addCard = (objectCard) => {
-  return {
-     type: ADD_CARD,
-     payload: objectCard
-   } 
- }
+})
 
- let updateeCard = (id, obj) => {
-  return {
-     type: 'UPDATE_CARD',
-     id: id,
-     obj: obj
-
-   } 
- }
-
-
-let pasportId = (id) => {
-  return {
-     type: 'PASPORT_ID',
-     payload: id,
-  } 
-}
+const pasportIdAction = (id) => ({
+	type: 'PASPORT_ID',
+	payload: id,
+})
 export {
-  changeColor,
-  deleteCards,
-  onSearch, 
-  colorFilter, 
-  addCard,
-  updateeCard,
-  pasportId
+	changeColorAction,
+	deleteCardsAction,
+	onSearchAction,
+	colorFilterAction,
+	addCardAction,
+	updateeCardAction,
+	pasportIdAction,
 };

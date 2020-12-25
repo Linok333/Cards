@@ -6,5 +6,3 @@ export const GET_CARDS = 'GET_CARDS'
 export const SEARCH_CARD = 'SEARCH_CARD'
 export const CHANGE_COLOR = 'CHANGE_COLOR'
 export const NEW_COLOR = 'NEW_COLOR'
-
-

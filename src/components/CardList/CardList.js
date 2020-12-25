@@ -1,67 +1,54 @@
 import React from 'react';
-import Card from '../Card/card';
 import { connect } from 'react-redux';
-import { withRouter } from "react-router";
+import { withRouter } from 'react-router';
+import Card from '../Card/card';
+import PropTypes from 'prop-types';
 
 export const MyIDContext = React.createContext();
 export const MyItemContext = React.createContext();
 
- const CardList = ({data, changeColor, deleteCards, cards, pasport, clientsArray, strId}) => {  
+const CardList = ({
+	changeColor, deleteCards, clientsArray, strId,
+}) => {
+	let arrayCards;
+	if (!strId) {
+		return 'Please create your first Card!'
+	}
+	clientsArray.forEach((client) => {
+		if (client.id === strId) {
+			arrayCards = client.cards
+		}
+	})
 
-  let arrayCards;
-  if (!strId) {
-    return "Please create your first Card!"
-  }
-  clientsArray.map((client) => {
-    if (client.id === strId) {
-      arrayCards = client.cards
-    } 
-  })
+	const elements = arrayCards.map((item) => (
+		<div key={item.id}>
+			<MyIDContext.Provider value={item.id}>
+				<MyItemContext.Provider value={item}>
+					<Card changeColor={(id) => changeColor(id)}
+						deleteCards={(id) => deleteCards(id)} item={item}/>
+				</MyItemContext.Provider>
+			</MyIDContext.Provider>
+		</div>
+	));
+	return (
+		<div>
+			{ elements }
+		</div>
+	);
+};
 
-  const elements =  arrayCards.map((item) => {
-    return (
-          <div>
-          <MyIDContext.Provider value={item.id}>
-            <MyItemContext.Provider value={item}>
-              <Card changeColor={(id) => changeColor(id)} 
-                    deleteCards ={(id) => deleteCards(id)} 
-                    item={item}
-                    />
-            </MyItemContext.Provider>
-          </MyIDContext.Provider>
-          </div>
-        );
-    });
-    return (
-      <div>
-          { elements }
-      </div>
-    );
-    
-    };   
+const mapStateToProps = ({ pasport, strId }) => {
+	const clientsArray = pasport.map((pass) => pass)
+	return {
+		clientsArray,
+		strId,
+	}
+};
 
-    const mapStateToProps = ({  pasport, strId}) => {
-      let clientsArray = pasport.map((pass) => {
-        return pass
-      })
-      return {
-        clientsArray,
-        strId
-      } 
-    };
-    
-    const mapDispatchToProps = (dispatch) => {
-     return {
-      // pasportId: (id) => dispatch(pasportId(id))
-         
-     }
-    };
-    
-    // const Arrows = withRouter(Arrow);
-
- export default connect(mapStateToProps, mapDispatchToProps)(withRouter(CardList));
-
-
-
-
-
+CardList.propTypes = {
+	deleteCards: PropTypes.func,
+	changeColor: PropTypes.func,
+	clientsArray: PropTypes.array,
+	strId: PropTypes.number,
+}
+export default connect(mapStateToProps, null)(withRouter(CardList));

@@ -1,44 +1,31 @@
 import React from 'react';
 import PasportList from '../../componentsPasport/PasportList';
 import './PasportPage.css'
-import { pasportId } from '../../action';
+import { pasportIdAction } from '../../action';
 import { connect } from 'react-redux';
-import { withRouter } from "react-router";
+import { withRouter } from 'react-router';
+import PropTypes from 'prop-types';
 
-const PasportPage = ({pasportId}) => { 
-  
-  return (
-    
-    <div className="cus">
-      <div className="cusom">
-        <h2 > Customers </h2>
-      </div>
-      <i class="fas fa-user-plus fa-5x client"></i>
-      <PasportList pasportId={(id) => pasportId(id)}/>
-    </div>
-  );
-};   
+const PasportPage = ({ pasportId }) => (
 
-const mapStateToProps = ({data}) => {
-  return {
-    data
-  } 
-};
+	<div className="cus">
+		<div className="cusom">
+			<h2 > Customers </h2>
+		</div>
+		<i className="fas fa-user-plus fa-5x client"></i>
+		<PasportList pasportId={(id) => pasportId(id)}/>
+	</div>
+);
 
+const mapStateToProps = ({ data }) => ({
+	data,
+});
 
-const mapDispatchToProps = (dispatch) => {
-return { 
-    pasportId: (id) => dispatch(pasportId(id))
+const mapDispatchToProps = (dispatch) => ({
+	pasportId: (id) => dispatch(pasportIdAction(id)),
+});
+
+PasportPage.propTypes = {
+	pasportId: PropTypes.func,
 }
-};
-
-
-
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(PasportPage));
-
-    
-
-
-
-
-

@@ -1,11 +1,13 @@
 import React from 'react';
 import './ExpiredData.css';
-const ExpiredData = ({expired}) => {
-  return (
-       <div className="tChild2">
-        <span> {expired} </span>
-       </div>
-  );
-}
+import PropTypes from 'prop-types';
 
+const ExpiredData = ({ expired }) => (
+	<div className="tChild2">
+		<span> {expired} </span>
+	</div>
+)
+ExpiredData.propTypes = {
+	expired: PropTypes.string,
+}
 export default ExpiredData
