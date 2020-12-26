@@ -11,7 +11,7 @@ const CardFooter = ({ deleteCards, item }) => {
 			return str;
 		}
 		return `${str.split('-')[1]}/${str.split('-')[0].slice(-2)}`;
-	}
+	};
 
 	return (
 		<div className="third" >
@@ -20,10 +20,10 @@ const CardFooter = ({ deleteCards, item }) => {
 			<Sign deleteCards={() => deleteCards(item.id)} />
 		</div>
 	);
-}
+};
 
 CardFooter.propTypes = {
 	item: PropTypes.object,
 	deleteCards: PropTypes.func,
-}
-export default CardFooter
+};
+export default CardFooter;

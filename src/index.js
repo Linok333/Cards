@@ -8,9 +8,10 @@ import store from './store';
 import MainImg from './components/MainImg';
 import CardsPage from './pages/CardsPage';
 import MyCard from './pages/MyCard';
-import PasportPage from './pages/PasportPage'
+import PasportPage from './pages/PasportPage';
 import AddFormPage from './pages/AddFormPage';
 import MainPage from './pages/Main-page';
+import CreatePasport from './pages/CreatePasport';
 
 const App = () => (
 	<div className={'main'}>
@@ -22,6 +23,8 @@ const App = () => (
 				<Route path="/" exact component={MainImg}/>
 				<Route path="/Cards/:data" component={CardsPage} />
 				<Route path="/Create" component={AddFormPage} />
+				<Route path="/CreatePasport" component={CreatePasport} />
+
 			</Router>
 		</Provider>
 	</div>

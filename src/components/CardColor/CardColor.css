@@ -8,12 +8,11 @@
   justify-content: center;
   align-items: center;
   margin: 15px;
-  border-radius: 10%;
-  background-color: rgb(199, 53, 53);
-  width: 75px;
+	border-radius: 10%;
+	width: 75px;
   height: 40px;
   text-align: center;
-  background-color: rgb(233, 217, 212);
+  background-color: rgb(245, 233, 228);
 
 }
 .red{
@@ -22,16 +21,16 @@
   width: 75px;
   height: 40px;
   text-align: center; 
-   background-color: rgb(235, 205, 193);
+   background-color: rgb(245, 233, 228);
 }
 .blue{
   margin: 15px;
   border-radius: 10%;
   width: 75px;
   height: 40px;
-  text-align: center;
-  background-color: rgb(240, 212, 202);
-  display: flex;
+	text-align: center;
+	display: flex;
+	background-color: rgb(245, 233, 228);
   justify-content: center;
   align-items: center;
 }
@@ -40,16 +39,17 @@
   border-radius: 10%;
   width: 75px;
   height: 40px;
-  text-align: center;
-  background-color: rgb(247, 207, 207);
+	text-align: center;
+	background-color: rgb(245, 233, 228);
 }
 .black{
   margin: 15px;
   border-radius: 10%;
   width: 75px;
   height: 40px;
-  text-align: center;
-  background-color: rgb(243, 220, 212);
+	text-align: center;
+	background-color: rgb(245, 233, 228);
+
 }
 
 .pink{
@@ -58,8 +58,7 @@
   width: 75px;
   height: 40px;
   text-align: center;
-  background-color: rgb(243, 206, 238);
-
+	background-color: rgb(245, 233, 228);
 }
 .yellow{
   margin: 15px;
@@ -67,7 +66,8 @@
   width: 75px;
   height: 40px;
   text-align: center;
-  background-color: rgb(223, 197, 188);
+	background-color: rgb(245, 233, 228);
+
 
 }
 .orange{
@@ -77,8 +77,9 @@
   border-radius: 10%;
   width: 75px;
   height: 40px;
-  text-align: center;
-  background-color: rgb(243, 192, 192);
+	text-align: center;
+	background-color: rgb(245, 233, 228);
+
 }
 .red:hover{
   color: rgb(242, 245, 248);

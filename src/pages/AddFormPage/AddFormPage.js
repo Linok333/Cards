@@ -1,6 +1,6 @@
-import React from 'react'
-import AddForm from '../../components/AddForm'
-import './AddFormPage.css'
+import React from 'react';
+import AddForm from '../../components/AddForm';
+import './AddFormPage.css';
 import { connect } from 'react-redux';
 import { addCardAction } from '../../action';
 import PropTypes from 'prop-types';
@@ -14,18 +14,18 @@ const AddFormPage = ({ addCard }) => {
 		cardType: '',
 		expiredData: '',
 		cardNumber: '',
-	}
+	};
 	return (
 		<div className="AddForm">
 			{/* <Arrows /> */}
 			<AddForm isUpdate={false} string={string}
 				addCard={(objectCard) => addCard(objectCard)} />
 		</div>
-	)
-}
+	);
+};
 AddFormPage.propTypes = {
 	addCard: PropTypes.object,
-}
+};
 const mapStateToProps = ({ data }) => ({
 	data,
 });

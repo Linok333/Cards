@@ -1,3 +1,3 @@
-import ExpiredData from './ExpiredData'
+import ExpiredData from './ExpiredData';
 
-export default ExpiredData
+export default ExpiredData;

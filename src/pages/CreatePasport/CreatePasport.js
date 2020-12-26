@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import './AddForm.css';
+import './CreatePasport.css';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
+import Arrows from '../../Arrow';
 
-const AddForm = ({
+const CreatePasport = ({
 	addCard, updateeCard, history, isUpdate, item, string,
 }) => {
-	const [bankName, setBankName] = useState(`${string.bankName}`);
-	const [cardName, setCardName] = useState(`${string.cardName}`);
-	const [cardType, setCardType] = useState(`${string.cardType}`);
-	const [expiredData, setExpiredData] = useState(`${string.expiredData}`);
-	const [cardNumber, setCardNumber] = useState(`${string.cardNumber}`);
+	const [bankName, setBankName] = useState('');
+	const [cardName, setCardName] = useState('');
+	const [cardType, setCardType] = useState('');
+	const [expiredData, setExpiredData] = useState('');
+	const [cardNumber, setCardNumber] = useState('');
 	let color;
 	let button = 'Add Card';
 	if (isUpdate) {
@@ -123,8 +124,9 @@ const AddForm = ({
 
 	return (
 		<div className="form-style1">
+			<Arrows/>
 			<div className="style">
-				<div className="text"> <span> Bank Name:</span> </div>
+				<div className="text"> <span> First Name:</span> </div>
 				<div className="input">
 					<input type="text" className="form-control"
 						placeholder="Enter please..."
@@ -134,37 +136,49 @@ const AddForm = ({
 			</div>
 
 			<div className="style">
-				<div className="text"> <span> Card Type: </span> </div>
+				<div className="text"> <span> Surname: </span> </div>
 				<div className="input">
 					<input type="text" className="form-control" placeholder="Enter please..." onChange={onType} value={cardType} />
 				</div>
 			</div>
 			<div className="style">
-				<div className="text"> <span> Card Number:</span> </div>
+				<div className="text"> <span> Middle Name:</span> </div>
 				<div className="input">
 					<input type="text" className="form-control" placeholder="Enter please..." onChange={onNumber} value={cardNumber} />
 				</div>
 			</div>
 			<div className="style">
-				<div className="text"> <span> Expired Data:</span> </div>
+				<div className="text"> <span> Birthday:</span> </div>
 				<div className="input">
-					<input type="date" className="form-control" placeholder="Enter please..." onChange={onData} value={expiredData}/>
+					<input type="text" className="form-control" placeholder="Enter please..." onChange={onData} value={expiredData}/>
 				</div>
 			</div>
 			<div className="style">
-				<div className="text" > <span> Card Name:</span> </div>
+				<div className="text" > <span> Sex:</span> </div>
 				<div className="input">
 					<input type="text" className="form-control" placeholder="Enter please..." onChange={onName} value={cardName}/>
 				</div>
 			</div>
+			<div className="style">
+				<div className="text"> <span> Town:</span> </div>
+				<div className="input">
+					<input type="text" className="form-control" placeholder="Enter please..." onChange={onData} value={expiredData}/>
+				</div>
+			</div>
+			<div className="style">
+				<div className="text"> <span> Region:</span> </div>
+				<div className="input">
+					<input type="text" className="form-control" placeholder="Enter please..." onChange={onData} value={expiredData}/>
+				</div>
+			</div>
 			<div className="item-add-form">
-				<button className="btn btn-outline-secondary" onClick={onSubmit} > {button} </button>
+				<button className="btn btn-outline-secondary" onClick={onSubmit} > Add Pasport </button>
 			</div>
 
 		</div>
 	);
 };
-AddForm.propTypes = {
+CreatePasport.propTypes = {
 	addCard: PropTypes.func,
 	updateeCard: PropTypes.func,
 	history: PropTypes.object,
@@ -172,5 +186,4 @@ AddForm.propTypes = {
 	item: PropTypes.object,
 	string: PropTypes.object,
 };
-const AddForm1 = withRouter(AddForm);
-export default AddForm1;
+export default withRouter(CreatePasport);

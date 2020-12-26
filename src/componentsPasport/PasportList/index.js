@@ -1,3 +1,3 @@
-import PasportList from './PasportList'
+import PasportList from './PasportList';
 
-export default PasportList
+export default PasportList;

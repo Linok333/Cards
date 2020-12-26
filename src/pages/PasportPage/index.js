@@ -1,3 +1,3 @@
-import PasportPage from './PasportPage'
+import PasportPage from './PasportPage';
 
-export default PasportPage
+export default PasportPage;

@@ -11,6 +11,6 @@ const Sign = ({ deleteCards }) => (
 
 Sign.propTypes = {
 	deleteCards: PropTypes.func,
-}
+};
 
-export default Sign
+export default Sign;

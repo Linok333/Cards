@@ -1,3 +1,3 @@
-import CardText from './CardText'
+import CardText from './CardText';
 
-export default CardText
+export default CardText;

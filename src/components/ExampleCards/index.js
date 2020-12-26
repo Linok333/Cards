@@ -1,3 +1,3 @@
-import ExampleCards from './ExampleCards'
+import ExampleCards from './ExampleCards';
 
-export default ExampleCards
+export default ExampleCards;

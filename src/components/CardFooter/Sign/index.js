@@ -1,3 +1,3 @@
-import Sign from './Sign'
+import Sign from './Sign';
 
-export default Sign
+export default Sign;

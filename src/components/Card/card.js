@@ -14,12 +14,12 @@ const Card = ({
 		<CardMiddle item={item} id={match.params.id}/>
 		<CardFooter item={item} deleteCards ={(id) => deleteCards(id)} />
 	</div>
-)
+);
 
 Card.propTypes = {
 	item: PropTypes.object,
 	deleteCards: PropTypes.func,
 	changeColor: PropTypes.func,
 	match: PropTypes.object,
-}
-export default withRouter(Card)
+};
+export default withRouter(Card);

@@ -12,13 +12,13 @@ const CardList = ({
 }) => {
 	let arrayCards;
 	if (!strId) {
-		return 'Please create your first Card!'
+		return 'Please create your first Card!';
 	}
 	clientsArray.forEach((client) => {
 		if (client.id === strId) {
-			arrayCards = client.cards
+			arrayCards = client.cards;
 		}
-	})
+	});
 
 	const elements = arrayCards.map((item) => (
 		<div key={item.id}>
@@ -38,11 +38,11 @@ const CardList = ({
 };
 
 const mapStateToProps = ({ pasport, strId }) => {
-	const clientsArray = pasport.map((pass) => pass)
+	const clientsArray = pasport.map((pass) => pass);
 	return {
 		clientsArray,
 		strId,
-	}
+	};
 };
 
 CardList.propTypes = {
@@ -50,5 +50,5 @@ CardList.propTypes = {
 	changeColor: PropTypes.func,
 	clientsArray: PropTypes.array,
 	strId: PropTypes.number,
-}
+};
 export default connect(mapStateToProps, null)(withRouter(CardList));

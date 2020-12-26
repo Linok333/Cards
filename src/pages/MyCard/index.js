@@ -1,3 +1,3 @@
-import MyCard from './MyCard'
+import MyCard from './MyCard';
 
-export default MyCard
+export default MyCard;

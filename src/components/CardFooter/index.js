@@ -1,3 +1,3 @@
-import CardFooter from './CardFooter'
+import CardFooter from './CardFooter';
 
-export default CardFooter
+export default CardFooter;

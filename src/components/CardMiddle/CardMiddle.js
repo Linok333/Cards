@@ -8,10 +8,10 @@ const CardMiddle = ({ item, history }) => {
 	const arrCard = cardM.split(' ');
 	const add = (str) => {
 		if (history.location.pathname === `${str}/Cards`) {
-			return
+			return;
 		}
-		history.push(`${str}/Cards`)
-	}
+		history.push(`${str}/Cards`);
+	};
 
 	return (
 		<div className="card-middle" onClick={() => add(`/MyCard/${item.id}`)}>
@@ -21,10 +21,10 @@ const CardMiddle = ({ item, history }) => {
 			<span> {arrCard[3]} </span>
 		</div>
 	);
-}
+};
 
 CardMiddle.propTypes = {
 	item: PropTypes.object,
 	history: PropTypes.object,
-}
-export default withRouter(CardMiddle)
+};
+export default withRouter(CardMiddle);

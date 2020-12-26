@@ -6,8 +6,8 @@ const TypeName = ({ item }) => (
 	<div className="tChild1">
 		<span> {item.typeName}</span>
 	</div>
-)
+);
 TypeName.propTypes = {
 	item: PropTypes.object,
-}
-export default TypeName
+};
+export default TypeName;

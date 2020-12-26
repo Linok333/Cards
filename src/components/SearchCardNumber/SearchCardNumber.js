@@ -7,10 +7,10 @@ import { onSearchAction } from '../../action';
 
 const SearchCardNumber = ({ onSearch, string }) => {
 	const onSearchChange = (e) => {
-		const str = e.target.value
+		const str = e.target.value;
 		string = str;
 		onSearch(string);
-	}
+	};
 
 	return (
 		<div className="search">
@@ -22,8 +22,8 @@ const SearchCardNumber = ({ onSearch, string }) => {
 				value={string}
 			/> </div>
 		</div>
-	)
-}
+	);
+};
 
 const mapStateToProps = ({ data, string }) => ({
 	data, string,
@@ -36,5 +36,5 @@ const mapDispatchToProps = (dispatch) => ({
 SearchCardNumber.propTypes = {
 	onSearch: PropTypes.func,
 	string: PropTypes.string,
-}
-export default connect(mapStateToProps, mapDispatchToProps)(SearchCardNumber)
+};
+export default connect(mapStateToProps, mapDispatchToProps)(SearchCardNumber);

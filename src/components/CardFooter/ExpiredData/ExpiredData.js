@@ -6,8 +6,8 @@ const ExpiredData = ({ expired }) => (
 	<div className="tChild2">
 		<span> {expired} </span>
 	</div>
-)
+);
 ExpiredData.propTypes = {
 	expired: PropTypes.string,
-}
-export default ExpiredData
+};
+export default ExpiredData;

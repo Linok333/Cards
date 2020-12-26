@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import SearchCardNumber from '../../components/SearchCardNumber';
 import CardList from '../../components/CardList';
 import CardColor from '../../components/CardColor';
-import './CardsPage.css'
+import './CardsPage.css';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
@@ -23,7 +23,7 @@ const CardsPage = ({
 			<CardColor/>
 		</div>
 	</div>
-)
+);
 
 const mapStateToProps = ({ newColor, string }) => ({
 	newColor, string,
@@ -38,5 +38,5 @@ CardsPage.propTypes = {
 	changeColor: PropTypes.func,
 	deleteCards: PropTypes.func,
 	match: PropTypes.object,
-}
+};
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(CardsPage));

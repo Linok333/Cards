@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import Pasport from '../Pasport'
+import Pasport from '../Pasport';
 import PropTypes from 'prop-types';
 
 const PasportList = ({ pasport, pasportId }) => {
@@ -27,7 +27,7 @@ const mapStateToProps = ({ pasport }) => ({
 PasportList.propTypes = {
 	pasport: PropTypes.array,
 	pasportId: PropTypes.func,
-}
+};
 export default connect(mapStateToProps, null)(withRouter(PasportList));
 
 // export default PasportList

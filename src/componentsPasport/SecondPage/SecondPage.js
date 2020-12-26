@@ -8,7 +8,7 @@ const SecondPage = ({ item, history }) => (
 		<div className="cod">
 			<span className="text1"> OPFRTSVFVF </span>
 		</div>
-		<div> <img onClick={() => { history.push('/Cards/:data') }}
+		<div> <img onClick={() => { history.push('/Cards/:data'); }}
 			height="150px" width="150px" src={item.image}/>  </div>
 		<div>
 			<div className="priz border-line"> <span> {item.surName}  </span> </div>
@@ -24,10 +24,10 @@ const SecondPage = ({ item, history }) => (
 		</div>
 		<i onClick={() => history.push('/Create')} className="fas fa-plus-circle fa-5x plus"></i>
 	</div>
-)
+);
 
 SecondPage.propTypes = {
 	item: PropTypes.object,
 	history: PropTypes.object,
-}
+};
 export default withRouter(SecondPage);

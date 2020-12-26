@@ -1,3 +1,3 @@
-import SecondPage from './SecondPage'
+import SecondPage from './SecondPage';
 
-export default SecondPage
+export default SecondPage;

@@ -13,5 +13,5 @@ const CardHeader = ({ changeColor, item }) => (
 CardHeader.propTypes = {
 	changeColor: PropTypes.func,
 	item: PropTypes.object,
-}
-export default CardHeader
+};
+export default CardHeader;

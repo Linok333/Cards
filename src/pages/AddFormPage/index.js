@@ -1,3 +1,3 @@
-import AddFormPage from './AddFormPage'
+import AddFormPage from './AddFormPage';
 
-export default AddFormPage
+export default AddFormPage;

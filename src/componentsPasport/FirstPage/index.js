@@ -1,3 +1,3 @@
-import FirstPage from './FirstPage'
+import FirstPage from './FirstPage';
 
-export default FirstPage
+export default FirstPage;

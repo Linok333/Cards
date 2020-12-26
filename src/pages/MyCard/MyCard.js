@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Card from '../../components/Card'
+import Card from '../../components/Card';
 import { changeColorAction, deleteCardsAction, updateeCardAction } from '../../action';
 import PropTypes from 'prop-types';
 
@@ -13,21 +13,27 @@ export const MyIDContext = React.createContext();
 export const MyItemContext = React.createContext();
 
 const MyCard = ({
-	data, updateeCard, match,
+	updateeCard, match, pasport, strId,
 }) => {
 	let item;
-	data.foreach((card) => {
-		if (card.id === match.params.id) {
-			item = card;
+	pasport.forEach((client) => {
+		if (client.id === strId) {
+			const { cards, cardsMain } = client;
+			cards.forEach((card) => {
+				if (card.id == match.params.id) {
+					item = card;
+				}
+			});
 		}
-	})
+	});
+
 	const string = {
 		bankName: item.bankName,
 		cardName: 'VISA',
 		cardType: item.cardType,
 		expiredData: item.expiredData,
 		cardNumber: item.cardNumber,
-	}
+	};
 	return (
 		<div className="MyCard" >
 			<div>
@@ -48,8 +54,8 @@ const MyCard = ({
 	);
 };
 
-const mapStateToProps = ({ data }) => ({
-	data,
+const mapStateToProps = ({ pasport, strId }) => ({
+	pasport, strId,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -60,7 +66,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 MyCard.propTypes = {
 	data: PropTypes.object,
-	updateeCard: PropTypes.object,
+	updateeCard: PropTypes.func,
 	match: PropTypes.object,
-}
+};
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(MyCard));

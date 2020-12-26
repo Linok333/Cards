@@ -1,3 +1,3 @@
-import CardMiddle from './CardMiddle'
+import CardMiddle from './CardMiddle';
 
-export default CardMiddle
+export default CardMiddle;

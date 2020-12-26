@@ -1,15 +1,13 @@
+//  image: https://image.freepik.com/free-vector/avatar-smiling-boy-facial-expression-icon-isolated-from-white-background_102172-300.jpg
+// https://png.pngtree.com/png-clipart/20190614/original/pngtree-boy-laugh-icon-png-image_3732084.jpg
+// https://cdn2.iconfinder.com/data/icons/cartoon-avatars/128/Avatars_asian_woman-512.png
+// https://cdn3.iconfinder.com/data/icons/business-avatars/128/avatar-01-512.png
+
 import {
-	DELETE_CARD, ADD_CARD, COLOR_FILTER, ON_SEARCH_CHANGE, CHANGE_COLOR,
+	DELETE_CARD, ADD_CARD, COLOR_FILTER, ON_SEARCH_CHANGE, CHANGE_COLOR, PASPORT_ID, UPDATE_CARD,
 } from '../action/actionTypes';
 
 const initialState = {
-// dataMain: [
-// 	{
-// 		cardNumber: '4444 6661 8888 9999', cardType: 'Юніор', bankName: 'АвальБанк',
-// expiredData: '04/20', typeName: 'VISA', color: 'green', id: 104,
-// 	},
-// ],
-
 	newColor: ['yellow', 'black', 'grey', 'orange', 'red', 'blue', 'pink', 'green'],
 	string: '',
 	pasport: [
@@ -47,10 +45,6 @@ const initialState = {
 				},
 			],
 		},
-		//  image: https://image.freepik.com/free-vector/avatar-smiling-boy-facial-expression-icon-isolated-from-white-background_102172-300.jpg
-		// https://png.pngtree.com/png-clipart/20190614/original/pngtree-boy-laugh-icon-png-image_3732084.jpg
-		// https://cdn2.iconfinder.com/data/icons/cartoon-avatars/128/Avatars_asian_woman-512.png
-		// https://cdn3.iconfinder.com/data/icons/business-avatars/128/avatar-01-512.png
 		{
 			id: 2,
 			cod: 'second',
@@ -104,83 +98,89 @@ const initialState = {
 		},
 	],
 	strId: false,
-}
+};
 
 const changeCardColor = (id, state) => {
-	const { pasport, strId } = state
-	let ourClient = 0;
+	const { pasport, strId } = state;
+	const newArray = [];
 	pasport.forEach((client) => {
 		if (client.id === strId) {
-			ourClient = client;
-		}
-	})
+			const { cards } = client;
+			const indexChange = Math.floor(Math.random() * state.newColor.length);
+			cards.map((item3) => {
+				if (id === item3.id) {
+					item3.color = state.newColor[indexChange];
+				}
+				return item3;
+			});
 
-	const { cards } = ourClient
-	const indexChange = Math.floor(Math.random() * state.newColor.length)
-	cards.map((item3) => {
-		if (id === item3.id) {
-			item3.color = state.newColor[indexChange];
+			const a = {
+				...client,
+				cards,
+				cardsMain: cards,
+			};
+			newArray.push(a);
+		} else {
+			newArray.push(client);
 		}
-		return item3
-	})
+	});
 	return {
 		...state,
-		// data: newArr,
-		// dataMain: newArr
-	}
-}
+		pasport: newArray,
+	};
+};
 
 const deleteCards = (id, state) => {
-	const { pasport, strId } = state
+	const { pasport, strId } = state;
 	const ourClient = [];
 	pasport.forEach((client) => {
 		if (client.id === strId) {
-			const { cardsMain } = client
+			const { cardsMain } = client;
 			const idx = cardsMain.findIndex((el) => el.id === id);
 			const newArray = [...cardsMain.slice(0, idx),
-				...cardsMain.slice(idx + 1)]
+				...cardsMain.slice(idx + 1)];
 			const b = {
 				...client,
 				cards: newArray,
 				cardsMain: newArray,
-			}
-			ourClient.push(b)
+			};
+			ourClient.push(b);
 		} else {
-			ourClient.push(client)
+			ourClient.push(client);
 		}
-	})
+	});
 
 	return {
 		...state,
 		pasport: ourClient,
-	}
-}
+	};
+};
 
 const search = (string, client) => {
-	const { cardsMain } = client
+	const { cardsMain } = client;
 	if (string === '') {
-		return cardsMain
+		return cardsMain;
 	}
 
-	return cardsMain.filter((item) => item.cardNumber.indexOf(string) === 0)
-}
+	return cardsMain.filter((item) => item.cardNumber.indexOf(string) === 0);
+};
 
 const onSearchChange = (string, state) => {
-	const { pasport, strId } = state
+	const { pasport, strId } = state;
 
-	const array = []
+	const array = [];
 	pasport.forEach((client) => {
 		if (client.id === strId) {
-			const visibleCards = search(string, client)
+			const visibleCards = search(string, client);
 			const obj = {
 				...client,
 				cards: visibleCards,
-			}
-			array.push(obj)
+			};
+			array.push(obj);
 		} else {
-			array.push(client)
+			array.push(client);
 		}
-	})
+	});
 	// data: visibleCards,)
 	return {
 		...state,
@@ -188,40 +188,40 @@ const onSearchChange = (string, state) => {
 		// cards:
 		string,
 		pasport: array,
-	}
-}
+	};
+};
 
 const colorFilter = (color, state) => {
-	const { pasport, strId } = state
+	const { pasport, strId } = state;
 	const ourClient = [];
 
 	pasport.forEach((client) => {
 		if (client.id === strId) {
-			const { cardsMain } = client
+			const { cardsMain } = client;
 			const cardsArr = [];
 
 			cardsMain.forEach((card) => {
 				if (color === card.color) {
 					cardsArr.push(card);
 				}
-			})
+			});
 
 			const obj = {
 				...client,
 				cards: cardsArr,
 				cardsMain,
-			}
+			};
 
-			ourClient.push(obj)
+			ourClient.push(obj);
 		} else {
-			ourClient.push(client)
+			ourClient.push(client);
 		}
-	})
+	});
 	return {
 		...state,
 		pasport: ourClient,
-	}
-}
+	};
+};
 
 const addCard = ({
 	bankName,
@@ -230,11 +230,11 @@ const addCard = ({
 	expiredData,
 	cardName,
 }, state) => {
-	const string = 'qwertyuiopkmjnhbgvfcdxsza'
+	const string = 'qwertyuiopkmjnhbgvfcdxsza';
 	const numberId = Math.floor(Math.random() * 100);
 	const stringId = Math.floor(Math.random() * string.length);
-	const cardId = numberId + string[stringId]
-	const { data } = state
+	const cardId = numberId + string[stringId];
+	const { pasport, strId } = state;
 	const newItem = {
 		bankName,
 		cardType,
@@ -242,18 +242,31 @@ const addCard = ({
 		expiredData,
 		typeName: cardName,
 		id: cardId,
-		color: 'green',
-	}
-	const newArr = [
-		newItem,
-		...data,
-	]
+		color: 'red',
+	};
+	const myArr = [];
+	pasport.forEach((client) => {
+		if (client.id === strId) {
+			const { cards, cardsMain } = client;
+			const newArr = [
+				newItem,
+				...cards,
+			];
+			const array = {
+				...client,
+				cards: newArr,
+				cardsMain: newArr
+			};
+			myArr.push(array);
+		} else {
+			myArr.push(client);
+		}
+	});
 	return {
 		...state,
-		data: newArr,
-		dataMain: newArr,
-	}
-}
+		pasport: myArr
+	};
+};
 
 const updateeCard = (state, id, {
 	bankName,
@@ -262,8 +275,7 @@ const updateeCard = (state, id, {
 	expiredData,
 	cardName, color,
 }) => {
-	const { dataMain } = state
-
+	const { pasport, strId } = state;
 	const element = {
 		bankName,
 		cardType,
@@ -272,51 +284,66 @@ const updateeCard = (state, id, {
 		typeName: cardName,
 		id,
 		color,
-	}
+	};
+	const myArr = [];
 
-	const newArr = []
-	dataMain.foreach((elem) => {
-		if (elem.id === id) {
-			elem = element
-			newArr.push(elem)
-		} else {
-			newArr.push(elem)
+	pasport.forEach((client) => {
+		if (client.id === strId) {
+			const { cards, cardsMain } = client;
+
+			const newArr = [];
+
+			cardsMain.forEach((elem) => {
+				if (elem.id === id) {
+					elem = element;
+					newArr.push(elem);
+				} else {
+					newArr.push(elem);
+				}
+			});
+			const a = {
+				...client,
+				cardsMain: newArr,
+				cards: newArr,
+			};
+			myArr.push(a);
+		} 		else {
+			myArr.push(client);
 		}
-	})
+	});
 
 	return {
 		...state,
-		dataMain: newArr,
-		data: newArr,
-	}
-}
+		pasport: myArr,
+	};
+};
 
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
 		case CHANGE_COLOR:
-			return changeCardColor(action.payload, state)
+			return changeCardColor(action.payload, state);
 
 		case DELETE_CARD:
-			return deleteCards(action.payload, state)
+			return deleteCards(action.payload, state);
 
 		case ADD_CARD:
-			return addCard(action.payload, state)
+			return addCard(action.payload, state);
 
 		case ON_SEARCH_CHANGE:
-			return onSearchChange(action.payload, state)
+			return onSearchChange(action.payload, state);
 
 		case COLOR_FILTER:
-			return colorFilter(action.payload, state)
+			return colorFilter(action.payload, state);
 
-		case 'UPDATE_CARD':
-			return updateeCard(state, action.id, action.obj)
+		case UPDATE_CARD:
+			return updateeCard(state, action.id, action.obj);
 
-		case 'PASPORT_ID':
+		case PASPORT_ID:
 
 			return {
 				...state,
 				strId: action.payload,
-			}
+			};
 		default:
 			return state;
 	}

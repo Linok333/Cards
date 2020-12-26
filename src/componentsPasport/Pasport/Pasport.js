@@ -1,7 +1,7 @@
 import React from 'react';
 import './Pasport.css';
 import FirstPage from '../FirstPage';
-import Line from '../Line'
+import Line from '../Line';
 import SecondPage from '../SecondPage';
 import PropTypes from 'prop-types';
 
@@ -34,5 +34,5 @@ Pasport.propTypes = {
 	item: PropTypes.object,
 	pasportId: PropTypes.func,
 
-}
-export default Pasport
+};
+export default Pasport;

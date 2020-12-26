@@ -1,5 +1,5 @@
-import React from 'react'
-import './Main-page.css'
+import React from 'react';
+import './Main-page.css';
 import { Link } from 'react-router-dom';
 
 const MainPage = () => (
@@ -14,7 +14,7 @@ const MainPage = () => (
 
 		</div>
 	</div>
-)
+);
 
 // export default withRouter(MainPage)
-export default MainPage
+export default MainPage;

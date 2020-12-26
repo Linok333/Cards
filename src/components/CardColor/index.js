@@ -1,3 +1,3 @@
-import CardColor from './CardColor'
+import CardColor from './CardColor';
 
-export default CardColor
+export default CardColor;

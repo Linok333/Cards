@@ -1,3 +1,3 @@
-import TypeName from './TypeName'
+import TypeName from './TypeName';
 
-export default TypeName
+export default TypeName;

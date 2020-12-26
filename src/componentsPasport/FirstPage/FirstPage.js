@@ -11,6 +11,6 @@ const FirstPage = () => (
 			<h4> Passport of a Citizen of Ukraine </h4>
 		</div>
 	</div>
-)
+);
 
-export default FirstPage
+export default FirstPage;
