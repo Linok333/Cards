@@ -1,9 +1,9 @@
 import React from 'react';
 import './Pasport.css';
+import PropTypes from 'prop-types';
 import FirstPage from '../FirstPage';
 import Line from '../Line';
 import SecondPage from '../SecondPage';
-import PropTypes from 'prop-types';
 
 const Pasport = ({ item, pasportId }) => (
 	<div className="ma" onClick={() => pasportId(item.id)}>

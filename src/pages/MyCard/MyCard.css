@@ -8,17 +8,17 @@
 .h2 {
   padding-top: 50px;
 }
-/* .reter {
+.reter {
 display: flex;
 justify-content: center;
 align-items: center;
-} */
+}
 .arrows {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
 }
-.box {
+.boxes {
   display: flex;
   justify-content: center;
   align-items: center;

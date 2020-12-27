@@ -132,7 +132,6 @@ const AddForm = ({
 						value={bankName} />
 				</div>
 			</div>
-
 			<div className="style">
 				<div className="text"> <span> Card Type: </span> </div>
 				<div className="input">
@@ -157,10 +156,9 @@ const AddForm = ({
 					<input type="text" className="form-control" placeholder="Enter please..." onChange={onName} value={cardName}/>
 				</div>
 			</div>
-			<div className="item-add-form">
+			<div className="style12" >
 				<button className="btn btn-outline-secondary" onClick={onSubmit} > {button} </button>
 			</div>
-
 		</div>
 	);
 };

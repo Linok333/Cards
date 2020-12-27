@@ -11,14 +11,7 @@
 	},
 	"rules": {
 		"max-len": "off",
-		"comma-dangle": "off",
-		"no-unused-vars": "off",
-		"eqeqeq": "off",
-		"eol-last": "off",
-		"prefer-destructuring": "off",
 		"no-param-reassign": "off",
-		"import/no-cycle": "off",
-		"import/order": "off",
 		"indent": [
 			2,
 			"tab",
@@ -77,6 +70,9 @@
 				"name": "Link",
 				"linkAttribute": "to"
 			}
-		]
+		],
+		"css-modules": {
+			"basePath": "src"
+		}
 	}
 }

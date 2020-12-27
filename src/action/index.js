@@ -1,5 +1,5 @@
 import {
-	DELETE_CARD, ADD_CARD, COLOR_FILTER, ON_SEARCH_CHANGE, CHANGE_COLOR, UPDATE_CARD, PASPORT_ID,
+	DELETE_CARD, ADD_CARD, COLOR_FILTER, ON_SEARCH_CHANGE, CHANGE_COLOR, UPDATE_CARD, PASPORT_ID, ADD_PASPORT,
 } from './actionTypes';
 
 const changeColorAction = (id) => ({
@@ -27,16 +27,26 @@ const addCardAction = (objectCard) => ({
 	payload: objectCard,
 });
 
+const addPasportAction = (objectCard) => ({
+	type: ADD_PASPORT,
+	payload: objectCard,
+});
+
 const updateeCardAction = (id, obj) => ({
 	type: UPDATE_CARD,
 	id,
 	obj,
-
 });
 
 const pasportIdAction = (id) => ({
 	type: PASPORT_ID,
 	payload: id,
+});
+
+const updatePasportAction = (id, obj) => ({
+	type: 'UPDATE_PASPORT',
+	id,
+	obj,
 });
 export {
 	changeColorAction,
@@ -44,6 +54,8 @@ export {
 	onSearchAction,
 	colorFilterAction,
 	addCardAction,
+	addPasportAction,
 	updateeCardAction,
 	pasportIdAction,
+	updatePasportAction,
 };

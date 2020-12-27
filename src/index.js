@@ -11,7 +11,8 @@ import MyCard from './pages/MyCard';
 import PasportPage from './pages/PasportPage';
 import AddFormPage from './pages/AddFormPage';
 import MainPage from './pages/Main-page';
-import CreatePasport from './pages/CreatePasport';
+import CreatePasportPage from './pages/CreatePasportPage';
+import EditPasportPage from './pages/EditPasportPage';
 
 const App = () => (
 	<div className={'main'}>
@@ -23,7 +24,8 @@ const App = () => (
 				<Route path="/" exact component={MainImg}/>
 				<Route path="/Cards/:data" component={CardsPage} />
 				<Route path="/Create" component={AddFormPage} />
-				<Route path="/CreatePasport" component={CreatePasport} />
+				<Route path="/CreatePasport" component={CreatePasportPage} />
+				<Route path="/EditPasport" component={EditPasportPage} />
 
 			</Router>
 		</Provider>

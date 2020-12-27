@@ -1,11 +1,12 @@
 import React from 'react';
+import { withRouter } from 'react-router';
+
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Card from '../../components/Card';
 import { changeColorAction, deleteCardsAction, updateeCardAction } from '../../action';
-import PropTypes from 'prop-types';
 
 import './MyCard.css';
-import { withRouter } from 'react-router';
 import Arrows from '../../Arrow';
 import AddForm from '../../components/AddForm';
 
@@ -18,9 +19,13 @@ const MyCard = ({
 	let item;
 	pasport.forEach((client) => {
 		if (client.id === strId) {
-			const { cards, cardsMain } = client;
+			const { cards } = client;
+
 			cards.forEach((card) => {
-				if (card.id == match.params.id) {
+				console.log('card.id', card.id);
+				console.log('Number(match.params.id)', match.params.id);
+
+				if (card.id === match.params.id) {
 					item = card;
 				}
 			});
@@ -42,7 +47,7 @@ const MyCard = ({
 					string={string} item={item} isUpdate={true}/> </div>
 			</div>
 
-			<div className="box">
+			<div className="boxes">
 				<div className="h2"> <h2> Here is your card </h2> </div>
 				<div className="reter">
 					<Card changeColor={() => null}

@@ -1,10 +1,10 @@
 import React from 'react';
 import './card.css';
 import { withRouter } from 'react-router';
+import PropTypes from 'prop-types';
 import CardHeader from '../CardHeader';
 import CardMiddle from '../CardMiddle';
 import CardFooter from '../CardFooter';
-import PropTypes from 'prop-types';
 
 const Card = ({
 	changeColor, item, deleteCards, match,

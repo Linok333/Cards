@@ -1,14 +1,15 @@
 import React from 'react';
-import SearchCardNumber from '../../components/SearchCardNumber';
-import CardList from '../../components/CardList';
-import CardColor from '../../components/CardColor';
+
 import './CardsPage.css';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { changeColorAction, deleteCardsAction } from '../../action';
 import { withRouter } from 'react-router-dom';
 import Arrows from '../../Arrow';
+import { changeColorAction, deleteCardsAction } from '../../action';
+import SearchCardNumber from '../../components/SearchCardNumber';
+import CardList from '../../components/CardList';
+import CardColor from '../../components/CardColor';
 
 const CardsPage = ({
 	changeColor, deleteCards, match,

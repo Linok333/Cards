@@ -1,9 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ExpiredData from './ExpiredData';
 import TypeName from './TypeName';
 import Sign from './Sign';
 import './CardFooter.css';
-import PropTypes from 'prop-types';
 
 const CardFooter = ({ deleteCards, item }) => {
 	const normalizeExpiredDate = (str) => {

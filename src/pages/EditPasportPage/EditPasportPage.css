@@ -1,0 +1,14 @@
+.roow {
+	display: flex;
+	flex-direction: row;
+}
+.EditPasportPage{
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-direction: column;
+}
+.pasport {
+ margin-left: 150px;
+ margin-top: 30px;
+}

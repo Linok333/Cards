@@ -2,177 +2,173 @@ import React, { useState } from 'react';
 import './CreatePasport.css';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
-import Arrows from '../../Arrow';
 
 const CreatePasport = ({
-	addCard, updateeCard, history, isUpdate, item, string,
+	addPasport, updatePasport, isUpdate, item, history,
 }) => {
-	const [bankName, setBankName] = useState('');
-	const [cardName, setCardName] = useState('');
-	const [cardType, setCardType] = useState('');
-	const [expiredData, setExpiredData] = useState('');
-	const [cardNumber, setCardNumber] = useState('');
-	let color;
-	let button = 'Add Card';
+	const [firstName, setFirstName] = useState(`${item.firstName}`);
+	const [surName, setSurName] = useState(`${item.surName}`);
+	const [middleName, setMiddleName] = useState(`${item.middleName}`);
+	const [birthday, setBirthday] = useState(`${item.birthday}`);
+	const [gender, setGender] = useState(`${item.gender}`);
+	const [town, setTown] = useState(`${item.town}`);
+	const [region, setRegion] = useState(`${item.region}`);
+
+	// let color;
+	// let button = 'Add Card';
+	// if (isUpdate) {
+	// 	button = 'Update';
+	// 	color = item.color;
+	// }
+	let image;
+	let button = 'Add Pasport';
 	if (isUpdate) {
-		button = 'Update';
-		color = item.color;
+		button = 'Update Pasport';
+		image = item.image;
 	}
 
-	const onBank = (e) => {
-		setBankName(e.target.value);
+	const onFirstName = (e) => {
+		setFirstName(e.target.value);
 	};
 
-	const onName = (e) => {
-		setCardName(e.target.value);
+	const onSurname = (e) => {
+		setSurName(e.target.value);
 	};
 
-	const onType = (e) => {
-		setCardType(e.target.value);
+	const onMiddleName = (e) => {
+		setMiddleName(e.target.value);
 	};
 
-	const onData = (e) => {
-		setExpiredData(e.target.value);
+	const onBirtday = (e) => {
+		setBirthday(e.target.value);
+	};
+	const onTown = (e) => {
+		setTown(e.target.value);
 	};
 
-	const onNumber = (e) => {
-		setCardNumber(e.target.value);
+	const onRegion = (e) => {
+		setRegion(e.target.value);
 	};
 
-	const checkMaxLength = (name, str, min, max) => {
-		if (name.length < min || name.length > max) {
-			return false;
-		}
-		return true;
+	const onGender = (e) => {
+		setGender(e.target.value);
 	};
-
-	const checkNumber = (name) => {
-		for (let i = 0; i < name.length; i++) {
-			if (Number(name[0])) {
-				return false;
-			}
-		}
-		return true;
-	};
-
-	const checkInput = (name, str, min, max) => {
-		if (checkNumber(name) && checkMaxLength(name, str, min, max)) {
-			return true;
-		}
-		return false;
-	};
-
 	const onSubmit = () => {
-		let str = '';
-		if (!cardType && !bankName && !cardNumber && !expiredData && !cardName) {
-			alert('Їбанутий? Сначала введи щось!');
-		}
+		if (!isUpdate) {
+			addPasport({
+				gender,
+				firstName,
+				middleName,
+				surName,
+				birthday,
+				town,
+				region,
+			});
 
-		const BankName = checkInput(bankName, 'Bank Name', 1, 90);
-		if (!BankName) {
-			// alert('BankName Incorrect')
-			return;
+			setFirstName('');
+			setMiddleName('');
+			setSurName('');
+			setBirthday('');
+			setTown('');
+			setRegion('');
+			setGender('');
+		} else {
+			updatePasport(item.id, {
+				gender,
+				firstName,
+				middleName,
+				surName,
+				birthday,
+				town,
+				region,
+				image,
+			});
+			setFirstName('');
+			setMiddleName('');
+			setSurName('');
+			setBirthday('');
+			setTown('');
+			setRegion('');
+			setGender('');
 		}
-		const CardType = checkInput(cardType, 'Card Type', 1, 89);
-		const CardNumber = checkMaxLength(cardNumber, 'Card Number', 1, 56);
-
-		if (cardNumber.length === 16) {
-			for (let i = 0; i < 16; i++) {
-				if (i === 3 || i === 7 || i === 11) {
-					str += `${cardNumber[i]} `;
-				} else {
-					str += cardNumber[i];
-				}
-			}
-		}
-		const CardName = checkInput(cardName, 'Card Name', 1, 56);
-		const ExpiredData = checkMaxLength(expiredData, 'Expired data', 1, 34);
-
-		if (BankName && CardType && CardName && ExpiredData && CardNumber) {
-			if (!isUpdate) {
-				addCard({
-					bankName,
-					cardType,
-					str,
-					expiredData,
-					cardName,
-				});
-
-				setBankName('');
-				setCardType('');
-				setCardNumber('');
-				setCardName('');
-				setExpiredData('');
-				history.push('./Cards/Create');
-			} else {
-				updateeCard(item.id, {
-					bankName,
-					cardType,
-					str,
-					expiredData,
-					cardName,
-					color,
-				});
-				setBankName('');
-				setCardType('');
-				setCardNumber('');
-				setCardName('');
-				setExpiredData('');
-			}
-		}
+		history.push('./Pasports');
 	};
 
 	return (
 		<div className="form-style1">
-			<Arrows/>
-			<div className="style">
+			<div className="style1">
 				<div className="text"> <span> First Name:</span> </div>
 				<div className="input">
 					<input type="text" className="form-control"
 						placeholder="Enter please..."
-						onChange={onBank}
-						value={bankName} />
+						onChange={onFirstName}
+						value={firstName} />
 				</div>
 			</div>
 
-			<div className="style">
+			<div className="style1">
 				<div className="text"> <span> Surname: </span> </div>
 				<div className="input">
-					<input type="text" className="form-control" placeholder="Enter please..." onChange={onType} value={cardType} />
+					<input type="text" className="form-control" placeholder="Enter please..." onChange={onSurname} value={surName} />
 				</div>
 			</div>
-			<div className="style">
+			<div className="style1">
 				<div className="text"> <span> Middle Name:</span> </div>
 				<div className="input">
-					<input type="text" className="form-control" placeholder="Enter please..." onChange={onNumber} value={cardNumber} />
+					<input type="text" className="form-control" placeholder="Enter please..." onChange={onMiddleName} value={middleName} />
 				</div>
 			</div>
-			<div className="style">
+			<div className="style1">
 				<div className="text"> <span> Birthday:</span> </div>
 				<div className="input">
-					<input type="text" className="form-control" placeholder="Enter please..." onChange={onData} value={expiredData}/>
+					<input type="date" className="form-control" placeholder="Enter please..." onChange={onBirtday} value={birthday}/>
 				</div>
 			</div>
-			<div className="style">
-				<div className="text" > <span> Sex:</span> </div>
-				<div className="input">
-					<input type="text" className="form-control" placeholder="Enter please..." onChange={onName} value={cardName}/>
+			<div className="style1">
+				<div className="text" > <span> Gender:</span> </div>
+				<div className="input" onChange={onGender} value={gender}>
+					{/* <input type="text" className="form-control" placeholder="Enter please..." onChange={onName} value={cardName}/> */}
+					<input className="ma" type="radio" name="gender" value="Чоловік"/> Чоловік
+					<input className="ma" checked={true} type="radio" name="gender" value="Жінка"/> Жінка
 				</div>
 			</div>
-			<div className="style">
+			<div className="style1">
 				<div className="text"> <span> Town:</span> </div>
 				<div className="input">
-					<input type="text" className="form-control" placeholder="Enter please..." onChange={onData} value={expiredData}/>
+					{/* <input type="select" className="form-control" placeholder="Enter please..." onChange={onData} value={expiredData}/> */}
+					<select name="select" className="input2" onChange={onTown} value={town}>
+						<option value="с. Щасливе" selected > с. Щасливе </option>
+						<option value="с.Гонорівка" > с.Гонорівка </option>
+						<option value="с.Брохвичі"> с.Брохвичі </option>
+						<option value="с.Студена"> с.Студена </option>
+						<option value="с.Трибусівка"> с.Трибусівка </option>
+						<option value="с.Миролюбівка"> с.Миролюбівка </option>
+						<option value="с.Рудниця"> с.Рудниця </option>
+						<option value="с.Ставки"> с.Ставки </option>
+						<option value="с.Яворівка"> с.Яворівка </option>
+						<option value="с.Трудове"> с.Трудове </option>
+					</select>
 				</div>
 			</div>
-			<div className="style">
+			<div className="style1">
 				<div className="text"> <span> Region:</span> </div>
 				<div className="input">
-					<input type="text" className="form-control" placeholder="Enter please..." onChange={onData} value={expiredData}/>
+					<select name="select" className="input2" onChange={onRegion} value={region}>
+						<option value="Вінницька обл" > Вінницька обл </option>
+						<option value="Хмельницька обл" > Хмельницька обл </option>
+						<option value="Київська обл"> Київська обл </option>
+						<option value="Тернопільська обл"> Тернопільська обл </option>
+						<option value="Чернігівська обл"> Чернігівська обл </option>
+						<option value="Чернівецька обл"> Чернівецька обл </option>
+						<option value="Житомирська обл"> Житомирська обл </option>
+						<option value="Львівська обл"> Львівська обл </option>
+						<option value="Харківська обл"> Харківська обл </option>
+						<option value="Херсонська обл"> Херсонська обл </option>
+					</select>
 				</div>
 			</div>
-			<div className="item-add-form">
-				<button className="btn btn-outline-secondary" onClick={onSubmit} > Add Pasport </button>
+			<div className="style12">
+				<button className="btn btn-outline-secondary" onClick={onSubmit} > {button} </button>
 			</div>
 
 		</div>
@@ -186,4 +182,5 @@ CreatePasport.propTypes = {
 	item: PropTypes.object,
 	string: PropTypes.object,
 };
+
 export default withRouter(CreatePasport);

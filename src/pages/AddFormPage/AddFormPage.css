@@ -1,8 +1,23 @@
-.addForm {
-  display: flex;
+.AddForm {
+	display: flex;
+	flex-direction: row;
+  justify-content: flex-start;
+	align-items: flex-start;
+	width: 35%;
+}
+.table {
+	display: flex;
+	flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 35%;
-  margin-top: 5px;
-  padding-right: 15%;
+}
+.hello {
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+	margin-top: 50px;
+	width: 100%;
+}
+.myh {
+	width: 800px;
 }

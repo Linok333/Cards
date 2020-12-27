@@ -1,10 +1,10 @@
 import React from 'react';
-import PasportList from '../../componentsPasport/PasportList';
-import './PasportPage.css';
-import { pasportIdAction } from '../../action';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
+import './PasportPage.css';
+import { pasportIdAction } from '../../action';
+import PasportList from '../../componentsPasport/PasportList';
 
 const PasportPage = ({ pasportId, history }) => (
 

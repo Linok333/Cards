@@ -1,13 +1,20 @@
 import React from 'react';
-import AddForm from '../../components/AddForm';
 import './AddFormPage.css';
 import { connect } from 'react-redux';
-import { addCardAction } from '../../action';
 import PropTypes from 'prop-types';
+import AddForm from '../../components/AddForm';
+import { addCardAction } from '../../action';
+import Arrows from '../../Arrow';
 
 export const MyAddContext = React.createContext();
 
-const AddFormPage = ({ addCard }) => {
+const AddFormPage = ({ addCard, pasport, strId }) => {
+	let client;
+	pasport.forEach((item) => {
+		if (item.id === strId) {
+			client = `${item.surName} ${item.firstName} створіть карту!`;
+		}
+	});
 	const string = {
 		bankName: '',
 		cardName: '',
@@ -17,17 +24,20 @@ const AddFormPage = ({ addCard }) => {
 	};
 	return (
 		<div className="AddForm">
-			{/* <Arrows /> */}
-			<AddForm isUpdate={false} string={string}
-				addCard={(objectCard) => addCard(objectCard)} />
+			<div className="table">
+				<div> <Arrows/> </div>
+				<div> <AddForm isUpdate={false} string={string}
+					addCard={(objectCard) => addCard(objectCard)}/> </div>
+			</div>
+			<div className="hello"> <h2 className="myh">  {client} </h2></div>
 		</div>
 	);
 };
 AddFormPage.propTypes = {
 	addCard: PropTypes.object,
 };
-const mapStateToProps = ({ data }) => ({
-	data,
+const mapStateToProps = ({ pasport, strId }) => ({
+	pasport, strId,
 });
 
 const mapDispatchToProps = (dispatch) => ({

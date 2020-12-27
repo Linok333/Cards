@@ -4,7 +4,7 @@ import './index.css';
 import PropTypes from 'prop-types';
 
 const Arrow = ({
-	history
+	history,
 }) => {
 	const string = 'Go back';
 	return (

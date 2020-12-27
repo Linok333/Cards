@@ -12,3 +12,8 @@
   margin-top: 40px;
   /* font-family: 'Frijole', cursive; */
  }
+ .edit {
+	 position: relative;
+	 bottom: 155px;
+	 right: 190px;
+ }

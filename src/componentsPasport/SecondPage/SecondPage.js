@@ -15,7 +15,7 @@ const SecondPage = ({ item, history }) => (
 			<div className="border-line"> <span> {item.firstName} </span>    </div>
 			<div className="border-line"> <span>  {item.middleName}  </span></div>
 			<div className="border-line"> <span>  {item.birthday}  </span></div>
-			<div className="border-line"> <span>  {item.sex}   </span></div>
+			<div className="border-line"> <span>  {item.gender}   </span></div>
 			<div className="border-line"> <span> {item.town}  </span></div>
 			<div className="border-line"> <span>  {item.region}   </span></div>
 			<div className="cherk">

@@ -8,3 +8,4 @@ export const CHANGE_COLOR = 'CHANGE_COLOR';
 export const NEW_COLOR = 'NEW_COLOR';
 export const UPDATE_CARD = 'UPDATE_CARD';
 export const PASPORT_ID = 'PASPORT_ID';
+export const ADD_PASPORT = 'ADD_PASPORT';

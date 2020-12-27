@@ -4,7 +4,7 @@
 // https://cdn3.iconfinder.com/data/icons/business-avatars/128/avatar-01-512.png
 
 import {
-	DELETE_CARD, ADD_CARD, COLOR_FILTER, ON_SEARCH_CHANGE, CHANGE_COLOR, PASPORT_ID, UPDATE_CARD,
+	DELETE_CARD, ADD_CARD, COLOR_FILTER, ON_SEARCH_CHANGE, CHANGE_COLOR, PASPORT_ID, UPDATE_CARD, ADD_PASPORT,
 } from '../action/actionTypes';
 
 const initialState = {
@@ -14,62 +14,62 @@ const initialState = {
 		{
 			id: 1,
 			cod: 'first',
-			firstName: 'Anhelina',
-			surName: 'Каташинська',
-			middleName: 'Олександрівна',
-			birthday: '27 серпня 2003р',
-			sex: 'Жінка',
+			firstName: 'Владислав',
+			surName: 'Каташинський',
+			middleName: 'Олександрович',
+			birthday: '24 листопада 1994р',
+			gender: 'Чоловік',
 			town: 'c.Брохвичі',
-			region: 'Вінницької обл',
+			region: 'Вінницьк обл',
 			image: 'https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_boss_client_male_person_user_work-512.png',
 			cardsMain: [
 				{
-					cardNumber: '1212 8641 8458 9999', cardType: 'Для виплат', bankName: 'ПриватБанк', expiredData: '05/24', typeName: 'VISA', color: 'red', id: 101, cod: 'first',
+					cardNumber: '1212 8641 8458 9999', cardType: 'Для виплат', bankName: 'ПриватБанк', expiredData: '05/24', typeName: 'VISA', color: 'red', id: '101', cod: 'first',
 				},
 				{
-					cardNumber: '1235 6661 8888 9999', cardType: 'Юніор', bankName: 'МоноБанк', expiredData: '04/23', typeName: 'VISA', color: 'yellow', id: 102, cod: 'first',
+					cardNumber: '1235 6661 8888 9999', cardType: 'Юніор', bankName: 'МоноБанк', expiredData: '04/23', typeName: 'VISA', color: 'yellow', id: '102', cod: 'first',
 				},
 				{
-					cardNumber: '0990 6661 8888 9999', cardType: 'Кредитна', bankName: 'АвальБанк', expiredData: '11/20', typeName: 'VISA', color: 'green', id: 103, cod: 'first',
+					cardNumber: '0990 6661 8888 9999', cardType: 'Кредитна', bankName: 'АвальБанк', expiredData: '11/20', typeName: 'VISA', color: 'green', id: '103', cod: 'first',
 				},
 			],
 			cards: [
 				{
-					cardNumber: '1212 8641 8458 9999', cardType: 'Для виплат', bankName: 'ПриватБанк', expiredData: '05/24', typeName: 'VISA', color: 'red', id: 101, cod: 'first',
+					cardNumber: '1212 8641 8458 9999', cardType: 'Для виплат', bankName: 'ПриватБанк', expiredData: '05/24', typeName: 'VISA', color: 'red', id: '101', cod: 'first',
 				},
 				{
-					cardNumber: '1235 6661 8888 9999', cardType: 'Юніор', bankName: 'МоноБанк', expiredData: '04/23', typeName: 'VISA', color: 'yellow', id: 102, cod: 'first',
+					cardNumber: '1235 6661 8888 9999', cardType: 'Юніор', bankName: 'МоноБанк', expiredData: '04/23', typeName: 'VISA', color: 'yellow', id: '102', cod: 'first',
 				},
 				{
-					cardNumber: '0990 6661 8888 9999', cardType: 'Кредитна', bankName: 'АвальБанк', expiredData: '11/20', typeName: 'VISA', color: 'green', id: 103, cod: 'first',
+					cardNumber: '0990 6661 8888 9999', cardType: 'Кредитна', bankName: 'АвальБанк', expiredData: '11/20', typeName: 'VISA', color: 'green', id: '103', cod: 'first',
 				},
 			],
 		},
 		{
 			id: 2,
 			cod: 'second',
-			firstName: 'Lina',
+			firstName: 'Ангеліна',
 			surName: 'Каташинська',
 			middleName: 'Олександрівна',
 			birthday: '27 серпня 2003р',
-			sex: 'Жінка',
+			gender: 'Жінка',
 			town: 'c.Брохвичі',
-			region: 'Вінницької обл',
+			region: 'Вінницька обл',
 			image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFG4Yzp-rmVaK4Z_0jQe9GLu1vkRVsstgsVQ&usqp=CAU',
 			cardsMain: [
 				{
-					cardNumber: '1111 8641 8458 9999', cardType: 'Для виплат', bankName: 'ПриватБанк', expiredData: '05/24', typeName: 'VISA', color: 'red', id: 104, cod: 'second',
+					cardNumber: '1111 8641 8458 9999', cardType: 'Для виплат', bankName: 'ПриватБанк', expiredData: '05/24', typeName: 'VISA', color: 'red', id: '104', cod: 'second',
 				},
 				{
-					cardNumber: '3333 6661 7777 7887', cardType: 'Юніор', bankName: 'АвальБанк', expiredData: '03/23', typeName: 'VISA', color: 'green', id: 105, cod: 'second',
+					cardNumber: '3333 6661 7777 7887', cardType: 'Юніор', bankName: 'АвальБанк', expiredData: '03/23', typeName: 'VISA', color: 'green', id: '105', cod: 'second',
 				},
 			],
 			cards: [
 				{
-					cardNumber: '1111 8641 8458 9999', cardType: 'Для виплат', bankName: 'ПриватБанк', expiredData: '05/24', typeName: 'VISA', color: 'red', id: 104, cod: 'second',
+					cardNumber: '1111 8641 8458 9999', cardType: 'Для виплат', bankName: 'ПриватБанк', expiredData: '05/24', typeName: 'VISA', color: 'red', id: '104', cod: 'second',
 				},
 				{
-					cardNumber: '3333 6661 7777 7887', cardType: 'Юніор', bankName: 'АвальБанк', expiredData: '03/23', typeName: 'VISA', color: 'green', id: 105, cod: 'second',
+					cardNumber: '3333 6661 7777 7887', cardType: 'Юніор', bankName: 'АвальБанк', expiredData: '03/23', typeName: 'VISA', color: 'green', id: '105', cod: 'second',
 				},
 			],
 		},
@@ -77,22 +77,22 @@ const initialState = {
 		{
 			id: 3,
 			cod: 'third',
-			firstName: 'Dima',
-			surName: 'Каташинська',
-			middleName: 'Олександрівна',
-			birthday: '27 серпня 2003р',
-			sex: 'Жінка',
+			firstName: 'Дмитро',
+			surName: 'Каташинський',
+			middleName: 'Олександрович',
+			birthday: '10 січня 2000р',
+			gender: 'Чоловік',
 			town: 'c.Брохвичі',
-			region: 'Вінницької обл',
+			region: 'Вінницька обл',
 			image: 'https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_client_male_person_user_work_sport_beard_team_glasses-512.png',
 			cardsMain: [
 				{
-					cardNumber: '6666 8641 8458 9999', cardType: 'Для виплат', bankName: 'ПриватБанк', expiredData: '05/24', typeName: 'VISA', color: 'grey', id: 106,
+					cardNumber: '6666 8641 8458 9999', cardType: 'Для виплат', bankName: 'ПриватБанк', expiredData: '05/24', typeName: 'VISA', color: 'grey', id: '106',
 				},
 			],
 			cards: [
 				{
-					cardNumber: '6666 8641 8458 9999', cardType: 'Для виплат', bankName: 'ПриватБанк', expiredData: '05/24', typeName: 'VISA', color: 'grey', id: 106,
+					cardNumber: '6666 8641 8458 9999', cardType: 'Для виплат', bankName: 'ПриватБанк', expiredData: '05/24', typeName: 'VISA', color: 'grey', id: '106',
 				},
 			],
 		},
@@ -247,7 +247,7 @@ const addCard = ({
 	const myArr = [];
 	pasport.forEach((client) => {
 		if (client.id === strId) {
-			const { cards, cardsMain } = client;
+			const { cards } = client;
 			const newArr = [
 				newItem,
 				...cards,
@@ -255,7 +255,7 @@ const addCard = ({
 			const array = {
 				...client,
 				cards: newArr,
-				cardsMain: newArr
+				cardsMain: newArr,
 			};
 			myArr.push(array);
 		} else {
@@ -264,7 +264,7 @@ const addCard = ({
 	});
 	return {
 		...state,
-		pasport: myArr
+		pasport: myArr,
 	};
 };
 
@@ -289,7 +289,7 @@ const updateeCard = (state, id, {
 
 	pasport.forEach((client) => {
 		if (client.id === strId) {
-			const { cards, cardsMain } = client;
+			const { cardsMain } = client;
 
 			const newArr = [];
 
@@ -318,6 +318,89 @@ const updateeCard = (state, id, {
 	};
 };
 
+const addPasport = ({
+	gender,
+	firstName,
+	middleName,
+	surName,
+	birthday,
+	town,
+	region,
+}, state) => {
+	const string = 'qwertyuiopkmjnhbgvfcdxsza';
+	const numberId = Math.floor(Math.random() * 100);
+	const stringId = Math.floor(Math.random() * string.length);
+	const pasportId = numberId + string[stringId];
+	const { pasport } = state;
+	let img;
+	if (gender === 'Чоловік') {
+		img = 'https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_client_male_person_user_work_sport_beard_team_glasses-512.png';
+	} else {
+		img =	'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFG4Yzp-rmVaK4Z_0jQe9GLu1vkRVsstgsVQ&usqp=CAU';
+	}
+	const newPasport = {
+		id: pasportId,
+		cod: 'x',
+		gender,
+		firstName,
+		middleName,
+		surName,
+		birthday,
+		town,
+		region,
+		image: img,
+		cardsMain: [],
+		cards: [],
+	};
+
+	const newPasports = [
+		newPasport,
+		...pasport,
+	];
+	return {
+		...state,
+		pasport: newPasports,
+	};
+};
+
+const updatePasport = (state, id, {
+	gender,
+	firstName,
+	middleName,
+	surName,
+	birthday,
+	town,
+	region,
+	image,
+}) => {
+	const { pasport, strId } = state;
+	const element = {
+		gender,
+		firstName,
+		middleName,
+		surName,
+		birthday,
+		town,
+		region,
+		image,
+	};
+	const myArr = [];
+
+	pasport.forEach((elem) => {
+		if (elem.id === strId) {
+			elem = element;
+			myArr.push(elem);
+		} else {
+			myArr.push(elem);
+		}
+	});
+
+	return {
+		...state,
+		pasport: myArr,
+	};
+};
+
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
 		case CHANGE_COLOR:
@@ -329,6 +412,9 @@ const reducer = (state = initialState, action) => {
 		case ADD_CARD:
 			return addCard(action.payload, state);
 
+		case ADD_PASPORT:
+			return addPasport(action.payload, state);
+
 		case ON_SEARCH_CHANGE:
 			return onSearchChange(action.payload, state);
 
@@ -337,6 +423,9 @@ const reducer = (state = initialState, action) => {
 
 		case UPDATE_CARD:
 			return updateeCard(state, action.id, action.obj);
+
+		case 'UPDATE_PASPORT':
+			return updatePasport(state, action.id, action.obj);
 
 		case PASPORT_ID:
 

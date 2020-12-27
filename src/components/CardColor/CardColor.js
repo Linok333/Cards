@@ -1,8 +1,8 @@
 import React from 'react';
 import './CardColor.css';
 import { connect } from 'react-redux';
-import { colorFilterAction } from '../../action';
 import PropTypes from 'prop-types';
+import { colorFilterAction } from '../../action';
 
 const CardColor = ({ colorFilter }) => {
 	const value = colorFilter;

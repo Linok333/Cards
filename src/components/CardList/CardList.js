@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import Card from '../Card/card';
 import PropTypes from 'prop-types';
+import Card from '../Card/card';
 
 export const MyIDContext = React.createContext();
 export const MyItemContext = React.createContext();

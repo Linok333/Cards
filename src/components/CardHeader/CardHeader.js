@@ -1,7 +1,7 @@
 import React from 'react';
 import './CardHeader.css';
-import CardText from './CardText';
 import PropTypes from 'prop-types';
+import CardText from './CardText';
 
 const CardHeader = ({ changeColor, item }) => (
 	<div className="CardHeader" onClick={changeColor}>
