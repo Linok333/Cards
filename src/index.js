@@ -13,20 +13,28 @@ import AddFormPage from './pages/AddFormPage';
 import MainPage from './pages/Main-page';
 import CreatePasportPage from './pages/CreatePasportPage';
 import EditPasportPage from './pages/EditPasportPage';
+import AllCardsPage from './pages/AllCardsPage';
+import BuyPage from './pages/BuyPage';
+import ShowPage from './pages/ShowPage';
+
+import PersistentDrawerLeft from './components/Drawer';
 
 const App = () => (
 	<div className={'main'}>
 		<Provider store={store}>
 			<Router>
 				<MainPage/>
-				<Route path="/MyCard/:id/:name" component={MyCard}/>
-				<Route path="/Pasports" exact component={PasportPage}/>
+				<Route path="/drawer" component={PersistentDrawerLeft} />
 				<Route path="/" exact component={MainImg}/>
+				<Route path="/MyCard/:id/:name" component={MyCard}/>
 				<Route path="/Cards/:data" component={CardsPage} />
+				<Route path="/AllCardsPage" component={AllCardsPage} />
+				<Route path="/Pasports" exact component={PasportPage}/>
+				<Route path="/BuyPage/:id" component={BuyPage} />
+				<Route path="/ShowPage/:id" component={ShowPage} />
 				<Route path="/Create" component={AddFormPage} />
 				<Route path="/CreatePasport" component={CreatePasportPage} />
 				<Route path="/EditPasport" component={EditPasportPage} />
-
 			</Router>
 		</Provider>
 	</div>

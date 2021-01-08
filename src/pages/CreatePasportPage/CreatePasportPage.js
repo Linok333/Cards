@@ -8,20 +8,14 @@ import './CreatePasportPage.css';
 export const MyAddContext = React.createContext();
 
 const CreatePasportPage = ({ addPasport }) => {
-	// let item;
-	// pasport.forEach((elem) => {
-	// 	if (elem.id === strId) {
-	// 		item = elem;
-	// 	}
-	// });
 	const wer = {
 		firstName: '',
 		surName: '',
 		middleName: '',
-		gender: '',
+		gender: 'Жінка',
 		birthday: '',
-		town: '',
-		region: '',
+		town: 'с.Рудниця',
+		region: 'Київська обл',
 	};
 	return (
 		<div className="CreatePasportPage">

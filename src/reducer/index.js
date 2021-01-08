@@ -2,103 +2,10 @@
 // https://png.pngtree.com/png-clipart/20190614/original/pngtree-boy-laugh-icon-png-image_3732084.jpg
 // https://cdn2.iconfinder.com/data/icons/cartoon-avatars/128/Avatars_asian_woman-512.png
 // https://cdn3.iconfinder.com/data/icons/business-avatars/128/avatar-01-512.png
-
+import { initialState } from '../data/PasportData';
 import {
 	DELETE_CARD, ADD_CARD, COLOR_FILTER, ON_SEARCH_CHANGE, CHANGE_COLOR, PASPORT_ID, UPDATE_CARD, ADD_PASPORT,
 } from '../action/actionTypes';
-
-const initialState = {
-	newColor: ['yellow', 'black', 'grey', 'orange', 'red', 'blue', 'pink', 'green'],
-	string: '',
-	pasport: [
-		{
-			id: 1,
-			cod: 'first',
-			firstName: 'Владислав',
-			surName: 'Каташинський',
-			middleName: 'Олександрович',
-			birthday: '24 листопада 1994р',
-			gender: 'Чоловік',
-			town: 'c.Брохвичі',
-			region: 'Вінницьк обл',
-			image: 'https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_boss_client_male_person_user_work-512.png',
-			cardsMain: [
-				{
-					cardNumber: '1212 8641 8458 9999', cardType: 'Для виплат', bankName: 'ПриватБанк', expiredData: '05/24', typeName: 'VISA', color: 'red', id: '101', cod: 'first',
-				},
-				{
-					cardNumber: '1235 6661 8888 9999', cardType: 'Юніор', bankName: 'МоноБанк', expiredData: '04/23', typeName: 'VISA', color: 'yellow', id: '102', cod: 'first',
-				},
-				{
-					cardNumber: '0990 6661 8888 9999', cardType: 'Кредитна', bankName: 'АвальБанк', expiredData: '11/20', typeName: 'VISA', color: 'green', id: '103', cod: 'first',
-				},
-			],
-			cards: [
-				{
-					cardNumber: '1212 8641 8458 9999', cardType: 'Для виплат', bankName: 'ПриватБанк', expiredData: '05/24', typeName: 'VISA', color: 'red', id: '101', cod: 'first',
-				},
-				{
-					cardNumber: '1235 6661 8888 9999', cardType: 'Юніор', bankName: 'МоноБанк', expiredData: '04/23', typeName: 'VISA', color: 'yellow', id: '102', cod: 'first',
-				},
-				{
-					cardNumber: '0990 6661 8888 9999', cardType: 'Кредитна', bankName: 'АвальБанк', expiredData: '11/20', typeName: 'VISA', color: 'green', id: '103', cod: 'first',
-				},
-			],
-		},
-		{
-			id: 2,
-			cod: 'second',
-			firstName: 'Ангеліна',
-			surName: 'Каташинська',
-			middleName: 'Олександрівна',
-			birthday: '27 серпня 2003р',
-			gender: 'Жінка',
-			town: 'c.Брохвичі',
-			region: 'Вінницька обл',
-			image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFG4Yzp-rmVaK4Z_0jQe9GLu1vkRVsstgsVQ&usqp=CAU',
-			cardsMain: [
-				{
-					cardNumber: '1111 8641 8458 9999', cardType: 'Для виплат', bankName: 'ПриватБанк', expiredData: '05/24', typeName: 'VISA', color: 'red', id: '104', cod: 'second',
-				},
-				{
-					cardNumber: '3333 6661 7777 7887', cardType: 'Юніор', bankName: 'АвальБанк', expiredData: '03/23', typeName: 'VISA', color: 'green', id: '105', cod: 'second',
-				},
-			],
-			cards: [
-				{
-					cardNumber: '1111 8641 8458 9999', cardType: 'Для виплат', bankName: 'ПриватБанк', expiredData: '05/24', typeName: 'VISA', color: 'red', id: '104', cod: 'second',
-				},
-				{
-					cardNumber: '3333 6661 7777 7887', cardType: 'Юніор', bankName: 'АвальБанк', expiredData: '03/23', typeName: 'VISA', color: 'green', id: '105', cod: 'second',
-				},
-			],
-		},
-
-		{
-			id: 3,
-			cod: 'third',
-			firstName: 'Дмитро',
-			surName: 'Каташинський',
-			middleName: 'Олександрович',
-			birthday: '10 січня 2000р',
-			gender: 'Чоловік',
-			town: 'c.Брохвичі',
-			region: 'Вінницька обл',
-			image: 'https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_client_male_person_user_work_sport_beard_team_glasses-512.png',
-			cardsMain: [
-				{
-					cardNumber: '6666 8641 8458 9999', cardType: 'Для виплат', bankName: 'ПриватБанк', expiredData: '05/24', typeName: 'VISA', color: 'grey', id: '106',
-				},
-			],
-			cards: [
-				{
-					cardNumber: '6666 8641 8458 9999', cardType: 'Для виплат', bankName: 'ПриватБанк', expiredData: '05/24', typeName: 'VISA', color: 'grey', id: '106',
-				},
-			],
-		},
-	],
-	strId: false,
-};
 
 const changeCardColor = (id, state) => {
 	const { pasport, strId } = state;
@@ -181,11 +88,8 @@ const onSearchChange = (string, state) => {
 			array.push(client);
 		}
 	});
-	// data: visibleCards,)
 	return {
 		...state,
-		// data: visibleCards,
-		// cards:
 		string,
 		pasport: array,
 	};
@@ -229,6 +133,7 @@ const addCard = ({
 	str,
 	expiredData,
 	cardName,
+	amount,
 }, state) => {
 	const string = 'qwertyuiopkmjnhbgvfcdxsza';
 	const numberId = Math.floor(Math.random() * 100);
@@ -243,6 +148,11 @@ const addCard = ({
 		typeName: cardName,
 		id: cardId,
 		color: 'red',
+		amount: Number(amount),
+		income: [
+			{ summa: '100', comment: 'Подарунок від Банку' },
+		],
+		costs: [],
 	};
 	const myArr = [];
 	pasport.forEach((client) => {
@@ -273,7 +183,7 @@ const updateeCard = (state, id, {
 	cardType,
 	str,
 	expiredData,
-	cardName, color,
+	cardName, color, amount, income, costs,
 }) => {
 	const { pasport, strId } = state;
 	const element = {
@@ -284,6 +194,9 @@ const updateeCard = (state, id, {
 		typeName: cardName,
 		id,
 		color,
+		amount: Number(amount),
+		income,
+		costs,
 	};
 	const myArr = [];
 
@@ -372,6 +285,8 @@ const updatePasport = (state, id, {
 	town,
 	region,
 	image,
+	cards,
+	cardsMain,
 }) => {
 	const { pasport, strId } = state;
 	const element = {
@@ -383,7 +298,11 @@ const updatePasport = (state, id, {
 		town,
 		region,
 		image,
+		cards,
+		cardsMain,
+		id,
 	};
+
 	const myArr = [];
 
 	pasport.forEach((elem) => {
@@ -400,7 +319,26 @@ const updatePasport = (state, id, {
 		pasport: myArr,
 	};
 };
-
+const clear = (state) => {
+	const { pasport, strId } = state;
+	const array = [];
+	pasport.forEach((client) => {
+		if (client.id === strId) {
+			const { cardsMain } = client;
+			const obj = {
+				...client,
+				cards: cardsMain,
+			};
+			array.push(obj);
+		} else {
+			array.push(client);
+		}
+	});
+	return {
+		...state,
+		pasport: array,
+	};
+};
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
 		case CHANGE_COLOR:
@@ -426,6 +364,9 @@ const reducer = (state = initialState, action) => {
 
 		case 'UPDATE_PASPORT':
 			return updatePasport(state, action.id, action.obj);
+
+		case 'CLEAR':
+			return clear(state);
 
 		case PASPORT_ID:
 

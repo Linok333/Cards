@@ -38,3 +38,8 @@ justify-content: flex-start;
   background-color: rgb(31, 173, 184);
   border-radius: 4%;
  }
+ .h {
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+ }

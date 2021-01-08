@@ -12,6 +12,9 @@
 	"rules": {
 		"max-len": "off",
 		"no-param-reassign": "off",
+		"no-useless-return": "off",
+		"consistent-return": "off",
+		"import/prefer-default-export": "off",
 		"indent": [
 			2,
 			"tab",

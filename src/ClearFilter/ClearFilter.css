@@ -1,0 +1,10 @@
+.filter {
+	background-color: rgb(222, 49, 99);
+	width: 75px;
+	height: 40px;
+	color: cornsilk;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+}

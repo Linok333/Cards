@@ -1,30 +1,22 @@
 import React from 'react';
 import { withRouter } from 'react-router';
-
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Card from '../../components/Card';
-import { changeColorAction, deleteCardsAction, updateeCardAction } from '../../action';
-
 import './MyCard.css';
-import Arrows from '../../Arrow';
-import AddForm from '../../components/AddForm';
 
-export const MyIDContext = React.createContext();
-export const MyItemContext = React.createContext();
+import { changeColorAction, deleteCardsAction, updateeCardAction } from '../../action';
+import AddForm from '../../components/AddForm';
+import Card from '../../components/Card';
+import Arrows from '../../Arrow';
 
 const MyCard = ({
-	updateeCard, match, pasport, strId,
+	updateeCard, match, pasport, strId, history,
 }) => {
 	let item;
 	pasport.forEach((client) => {
 		if (client.id === strId) {
 			const { cards } = client;
-
 			cards.forEach((card) => {
-				console.log('card.id', card.id);
-				console.log('Number(match.params.id)', match.params.id);
-
 				if (card.id === match.params.id) {
 					item = card;
 				}
@@ -32,27 +24,29 @@ const MyCard = ({
 		}
 	});
 
-	const string = {
+	const objCards = {
 		bankName: item.bankName,
-		cardName: 'VISA',
+		cardName: item.typeName,
 		cardType: item.cardType,
 		expiredData: item.expiredData,
 		cardNumber: item.cardNumber,
+		amount: item.amount,
 	};
 	return (
 		<div className="MyCard" >
 			<div>
 				<div className="arrows"> <Arrows params={match.params}/> </div>
 				<div> <AddForm updateeCard={(id, obj) => updateeCard(id, obj)}
-					string={string} item={item} isUpdate={true}/> </div>
+					objCards={objCards} item={item} isUpdate={true}/> </div>
 			</div>
-
 			<div className="boxes">
 				<div className="h2"> <h2> Here is your card </h2> </div>
 				<div className="reter">
+					<div className='cort' onClick={() => { history.push(`/BuyPage/${match.params.id}`); }} > <i className="fas fa-piggy-bank fa-3x"></i> </div>
 					<Card changeColor={() => null}
 						deleteCards ={() => null}
 						item={item} />
+					<div className="cort" onClick={() => { history.push(`/ShowPage/${match.params.id}`); }} > <i className=" smail fas fa-search-dollar fa-3x" ></i> </div>
 				</div>
 			</div>
 		</div>

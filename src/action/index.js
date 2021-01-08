@@ -43,6 +43,10 @@ const pasportIdAction = (id) => ({
 	payload: id,
 });
 
+const clearAction = () => ({
+	type: 'CLEAR',
+});
+
 const updatePasportAction = (id, obj) => ({
 	type: 'UPDATE_PASPORT',
 	id,
@@ -58,4 +62,5 @@ export {
 	updateeCardAction,
 	pasportIdAction,
 	updatePasportAction,
+	clearAction,
 };

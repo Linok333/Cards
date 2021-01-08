@@ -1,0 +1,36 @@
+.plusGreen {
+	color: rgb(13, 209, 13);
+	font-size: 40px;
+	display: flex;
+	justify-content: center;
+	width: 35px;
+	height: 35px;
+	align-items: center;
+}
+.strFont {
+	font-size: 25px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.minusRed{
+	color: red;
+	font-size: 40px;
+	display: flex;
+	justify-content: center;
+	width: 35px;
+	height: 35px;
+	align-items: center;
+}
+.block {
+	display: flex;
+	flex-direction: row;
+
+}
+.block-bydjet {
+	display: flex;
+	flex-direction: row;
+}
+.elem {
+	margin: 25px;
+}

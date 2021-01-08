@@ -6,27 +6,45 @@ import PropTypes from 'prop-types';
 const CreatePasport = ({
 	addPasport, updatePasport, isUpdate, item, history,
 }) => {
+	const optTown = [
+		{ text: 'с.Гонорівка', id: 1 },
+		{ text: 'с.Брохвичі', id: 2 },
+		{ text: 'с.Студена', id: 3 },
+		{ text: 'с.Рудниця', id: 4 },
+		{ text: 'с.Ставки', id: 5 },
+		{ text: 'с.Яворівка', id: 6 },
+		{ text: 'с.Миролюбівка', id: 7 },
+		{ text: 'с.Кончене', id: 7 },
+	];
+	const optRegion = [
+		{ text: 'Вінницька обл', id: 1 },
+		{ text: 'Чернівецька обл', id: 2 },
+		{ text: 'Харківська обл', id: 3 },
+		{ text: 'Київська обл', id: 4 },
+		{ text: 'Хмельницька обл', id: 5 },
+		{ text: 'Херсонська обл', id: 6 },
+		{ text: 'Запорізька обл', id: 7 },
+	];
 	const [firstName, setFirstName] = useState(`${item.firstName}`);
 	const [surName, setSurName] = useState(`${item.surName}`);
 	const [middleName, setMiddleName] = useState(`${item.middleName}`);
-	const [birthday, setBirthday] = useState(`${item.birthday}`);
+	let [birthday, setBirthday] = useState(`${item.birthday}`);
 	const [gender, setGender] = useState(`${item.gender}`);
 	const [town, setTown] = useState(`${item.town}`);
 	const [region, setRegion] = useState(`${item.region}`);
 
-	// let color;
-	// let button = 'Add Card';
-	// if (isUpdate) {
-	// 	button = 'Update';
-	// 	color = item.color;
-	// }
 	let image;
+	let check;
 	let button = 'Add Pasport';
 	if (isUpdate) {
 		button = 'Update Pasport';
 		image = item.image;
+		if (gender === 'Чоловік') {
+			check = true;
+		} else {
+			check = false;
+		}
 	}
-
 	const onFirstName = (e) => {
 		setFirstName(e.target.value);
 	};
@@ -41,11 +59,11 @@ const CreatePasport = ({
 
 	const onBirtday = (e) => {
 		setBirthday(e.target.value);
+		console.log(setBirthday = null);
 	};
 	const onTown = (e) => {
 		setTown(e.target.value);
 	};
-
 	const onRegion = (e) => {
 		setRegion(e.target.value);
 	};
@@ -53,7 +71,17 @@ const CreatePasport = ({
 	const onGender = (e) => {
 		setGender(e.target.value);
 	};
+	birthday.split('-');
+	const araa = new Date(birthday);
+	const monthNumber = 	araa.getMonth();
+	const year = 	araa.getFullYear();
+	const day = 	araa.getDate();
+	const { cards, cardsMain, id } = item;
+	const months = ['січня', 'лютого', 'березня', 'квітня', 'травня',
+		'червня', 'липня', 'серпня', 'вересня', 'жовтня', 'листопада', 'грудня'];
 	const onSubmit = () => {
+		const str = `${day} ${months[monthNumber]} ${year}р`;
+		birthday = str;
 		if (!isUpdate) {
 			addPasport({
 				gender,
@@ -82,7 +110,11 @@ const CreatePasport = ({
 				town,
 				region,
 				image,
+				cards,
+				cardsMain,
+				id,
 			});
+
 			setFirstName('');
 			setMiddleName('');
 			setSurName('');
@@ -93,6 +125,13 @@ const CreatePasport = ({
 		}
 		history.push('./Pasports');
 	};
+
+	const towns = optTown.map((el) => (
+		<option key={el.id} value={el.text}> {el.text} </option>
+	));
+	const regions = optRegion.map((el) => (
+		<option key={el.id} value={el.text}> {el.text} </option>
+	));
 
 	return (
 		<div className="form-style1">
@@ -124,46 +163,26 @@ const CreatePasport = ({
 					<input type="date" className="form-control" placeholder="Enter please..." onChange={onBirtday} value={birthday}/>
 				</div>
 			</div>
-			<div className="style1">
-				<div className="text" > <span> Gender:</span> </div>
-				<div className="input" onChange={onGender} value={gender}>
-					{/* <input type="text" className="form-control" placeholder="Enter please..." onChange={onName} value={cardName}/> */}
-					<input className="ma" type="radio" name="gender" value="Чоловік"/> Чоловік
-					<input className="ma" checked={true} type="radio" name="gender" value="Жінка"/> Жінка
+			<div className='style1'>
+				<div className='text' > <span> Gender:</span> </div>
+				<div className='input' onChange={onGender} value={gender || 'Жінка'}>
+					<input className='ma' checked={check} type='radio' name='gender' value='Чоловік'/> Чоловік
+					<input className='ma' type='radio' checked={!check} name='gender' value='Жінка'/> Жінка
 				</div>
 			</div>
 			<div className="style1">
 				<div className="text"> <span> Town:</span> </div>
 				<div className="input">
-					{/* <input type="select" className="form-control" placeholder="Enter please..." onChange={onData} value={expiredData}/> */}
-					<select name="select" className="input2" onChange={onTown} value={town}>
-						<option value="с. Щасливе" selected > с. Щасливе </option>
-						<option value="с.Гонорівка" > с.Гонорівка </option>
-						<option value="с.Брохвичі"> с.Брохвичі </option>
-						<option value="с.Студена"> с.Студена </option>
-						<option value="с.Трибусівка"> с.Трибусівка </option>
-						<option value="с.Миролюбівка"> с.Миролюбівка </option>
-						<option value="с.Рудниця"> с.Рудниця </option>
-						<option value="с.Ставки"> с.Ставки </option>
-						<option value="с.Яворівка"> с.Яворівка </option>
-						<option value="с.Трудове"> с.Трудове </option>
+					<select name="select" className="input2" onChange={onTown} value={town || 'с.Рудниця'}>
+						{towns}
 					</select>
 				</div>
 			</div>
 			<div className="style1">
 				<div className="text"> <span> Region:</span> </div>
 				<div className="input">
-					<select name="select" className="input2" onChange={onRegion} value={region}>
-						<option value="Вінницька обл" > Вінницька обл </option>
-						<option value="Хмельницька обл" > Хмельницька обл </option>
-						<option value="Київська обл"> Київська обл </option>
-						<option value="Тернопільська обл"> Тернопільська обл </option>
-						<option value="Чернігівська обл"> Чернігівська обл </option>
-						<option value="Чернівецька обл"> Чернівецька обл </option>
-						<option value="Житомирська обл"> Житомирська обл </option>
-						<option value="Львівська обл"> Львівська обл </option>
-						<option value="Харківська обл"> Харківська обл </option>
-						<option value="Херсонська обл"> Херсонська обл </option>
+					<select value={region || 'Київська обл'} name="select" className="input2" onChange={onRegion} >
+						{regions}
 					</select>
 				</div>
 			</div>

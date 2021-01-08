@@ -15,18 +15,19 @@ const AddFormPage = ({ addCard, pasport, strId }) => {
 			client = `${item.surName} ${item.firstName} створіть карту!`;
 		}
 	});
-	const string = {
-		bankName: '',
-		cardName: '',
-		cardType: '',
+	const objCards = {
+		bankName: 'ПриватБанк',
+		cardName: 'VISA',
+		cardType: 'Для виплат',
 		expiredData: '',
 		cardNumber: '',
+		amount: 100,
 	};
 	return (
 		<div className="AddForm">
 			<div className="table">
 				<div> <Arrows/> </div>
-				<div> <AddForm isUpdate={false} string={string}
+				<div> <AddForm isUpdate={false} objCards={objCards}
 					addCard={(objectCard) => addCard(objectCard)}/> </div>
 			</div>
 			<div className="hello"> <h2 className="myh">  {client} </h2></div>

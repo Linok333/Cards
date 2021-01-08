@@ -3,9 +3,10 @@ import './SearchCardNumber.css';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { onSearchAction } from '../../action';
+import { onSearchAction, clearAction } from '../../action';
+import ClearFilter from '../../ClearFilter';
 
-const SearchCardNumber = ({ onSearch, string }) => {
+const SearchCardNumber = ({ onSearch, string, clear }) => {
 	const onSearchChange = (e) => {
 		const str = e.target.value;
 		string = str;
@@ -21,6 +22,10 @@ const SearchCardNumber = ({ onSearch, string }) => {
 				onChange={onSearchChange}
 				value={string}
 			/> </div>
+			<div className="clr">
+				<ClearFilter clear={() => clear()}/>
+			</div>
+
 		</div>
 	);
 };
@@ -31,6 +36,7 @@ const mapStateToProps = ({ data, string }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
 	onSearch: (str) => dispatch(onSearchAction(str)),
+	clear: () => dispatch(clearAction()),
 });
 
 SearchCardNumber.propTypes = {

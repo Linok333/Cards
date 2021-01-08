@@ -1,15 +1,25 @@
 import React from 'react';
 import './CardMiddle.css';
 import { withRouter } from 'react-router';
-import PropTypes from 'prop-types';
+// import Modal from '@material-ui/core/Modal';
 
-const CardMiddle = ({ item, history }) => {
+// import PropTypes from 'prop-types';
+
+const CardMiddle = ({
+	item, history, location, mood,
+}) => {
 	const cardM = item.cardNumber;
 	const arrCard = cardM.split(' ');
 	const add = (str) => {
-		if (history.location.pathname === `${str}/Cards`) {
+		if (location.pathname === '/AllCardsPage') {
+			// history.push('./Modalka');
+			mood();
 			return;
 		}
+		if (location.pathname === `${str}/Cards`) {
+			return;
+		}
+
 		history.push(`${str}/Cards`);
 	};
 
@@ -23,8 +33,4 @@ const CardMiddle = ({ item, history }) => {
 	);
 };
 
-CardMiddle.propTypes = {
-	item: PropTypes.object,
-	history: PropTypes.object,
-};
 export default withRouter(CardMiddle);

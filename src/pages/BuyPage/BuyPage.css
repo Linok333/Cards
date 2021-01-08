@@ -1,0 +1,64 @@
+.mainBlock {
+	display: flex;
+	flex-direction: row;
+	margin-top: 50px;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+.amount {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.onlyCard {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 30px;
+}
+.money {
+	display: flex;
+	flex-direction: row;
+}
+.income {
+	margin-right: 80px;
+	width: 50%;
+}
+.costs {
+	width: 50%;
+}
+.cardsAmount {
+	display: flex;
+	flex-direction: column;
+}
+
+.input-1 {
+	width: 90px;
+	height: 33px;
+	margin-bottom: 20px;
+  border-radius: 5%;
+}
+.input-2 {
+	width: 200px;
+	height: 33px;
+	margin-bottom: 20px;
+	border-radius: 5%;
+	height: 40px;
+}
+.apply {
+  display: flex;
+  justify-content: flex-end;
+	align-items: flex-end;
+}
+.span-button {
+	background-color: rgb(141, 56, 141);
+	width: 60px;	
+	height: 33px;
+	border-radius: 8%;
+  display: flex;
+  justify-content: center;
+	align-items: center;
+	color: white;
+}

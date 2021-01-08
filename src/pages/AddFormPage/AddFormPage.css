@@ -4,6 +4,7 @@
   justify-content: flex-start;
 	align-items: flex-start;
 	width: 35%;
+	margin-top: 25px;
 }
 .table {
 	display: flex;

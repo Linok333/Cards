@@ -10,6 +10,7 @@ import { changeColorAction, deleteCardsAction } from '../../action';
 import SearchCardNumber from '../../components/SearchCardNumber';
 import CardList from '../../components/CardList';
 import CardColor from '../../components/CardColor';
+// import ClearFilter from '../../ClearFilter';
 
 const CardsPage = ({
 	changeColor, deleteCards, match,
@@ -20,7 +21,7 @@ const CardsPage = ({
 			<SearchCardNumber />
 			<CardList changeColor={(id) => changeColor(id)} deleteCards = {(id) => deleteCards(id)}/>
 		</div>
-		<div className={'card-color'}>
+		<div className='card-color'>
 			<CardColor/>
 		</div>
 	</div>

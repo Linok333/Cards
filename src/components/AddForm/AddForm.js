@@ -4,16 +4,54 @@ import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 
 const AddForm = ({
-	addCard, updateeCard, history, isUpdate, item, string,
+	addCard, updateeCard, history, isUpdate, item, objCards,
 }) => {
-	const [bankName, setBankName] = useState(`${string.bankName}`);
-	const [cardName, setCardName] = useState(`${string.cardName}`);
-	const [cardType, setCardType] = useState(`${string.cardType}`);
-	const [expiredData, setExpiredData] = useState(`${string.expiredData}`);
-	const [cardNumber, setCardNumber] = useState(`${string.cardNumber}`);
+	const optBank = [
+		{ text: 'ПриватБанк', id: 1 },
+		{ text: 'Ощадбанк', id: 2 },
+		{ text: 'Укргазбанк', id: 3 },
+		{ text: 'Кредобанк', id: 4 },
+		{ text: 'АльфаБанк', id: 5 },
+		{ text: 'Укрсиббанк', id: 6 },
+		{ text: 'ПравексБанк', id: 7 },
+	];
+	const optName = [
+		{ text: 'VISA', id: 1 },
+		{ text: 'LOGO', id: 2 },
+		{ text: 'MOLO', id: 3 },
+		{ text: 'REWQ', id: 4 },
+		{ text: 'LPEN', id: 5 },
+	];
+	const optTyp = [
+		{ text: 'Кредитна', id: 1 },
+		{ text: 'Для виплат', id: 2 },
+		{ text: 'Юніора', id: 3 },
+		{ text: 'Фігня', id: 4 },
+	];
+
+	const banks = optBank.map((el) => (
+		<option key={el.id} value={el.text}> {el.text} </option>
+	));
+	const typ = optTyp.map((el) => (
+		<option key={el.id} value={el.text}> {el.text} </option>
+	));
+	const names = optName.map((el) => (
+		<option key={el.id} value={el.text}> {el.text} </option>
+	));
+
+	const [bankName, setBankName] = useState(`${objCards.bankName}`);
+	const [cardName, setCardName] = useState(`${objCards.cardName}`);
+	const [cardType, setCardType] = useState(`${objCards.cardType}`);
+	const [expiredData, setExpiredData] = useState(`${objCards.expiredData}`);
+	const [cardNumber, setCardNumber] = useState(`${objCards.cardNumber}`);
+	const [amount] = useState(`${objCards.amount}`);
 	let color;
+	let costs;
+	let income;
 	let button = 'Add Card';
 	if (isUpdate) {
+		costs = item.costs;
+		income = item.income;
 		button = 'Update';
 		color = item.color;
 	}
@@ -45,36 +83,10 @@ const AddForm = ({
 		return true;
 	};
 
-	const checkNumber = (name) => {
-		for (let i = 0; i < name.length; i++) {
-			if (Number(name[0])) {
-				return false;
-			}
-		}
-		return true;
-	};
-
-	const checkInput = (name, str, min, max) => {
-		if (checkNumber(name) && checkMaxLength(name, str, min, max)) {
-			return true;
-		}
-		return false;
-	};
-
 	const onSubmit = () => {
 		let str = '';
-		if (!cardType && !bankName && !cardNumber && !expiredData && !cardName) {
-			alert('Їбанутий? Сначала введи щось!');
-		}
-
-		const BankName = checkInput(bankName, 'Bank Name', 1, 90);
-		if (!BankName) {
-			// alert('BankName Incorrect')
-			return;
-		}
-		const CardType = checkInput(cardType, 'Card Type', 1, 89);
-		const CardNumber = checkMaxLength(cardNumber, 'Card Number', 1, 56);
-
+		const CardNumber = checkMaxLength(cardNumber, 'Card Number', 1, 47);
+		const ExpiredData = checkMaxLength(expiredData, 'Expired data', 1, 15);
 		if (cardNumber.length === 16) {
 			for (let i = 0; i < 16; i++) {
 				if (i === 3 || i === 7 || i === 11) {
@@ -84,10 +96,8 @@ const AddForm = ({
 				}
 			}
 		}
-		const CardName = checkInput(cardName, 'Card Name', 1, 56);
-		const ExpiredData = checkMaxLength(expiredData, 'Expired data', 1, 34);
 
-		if (BankName && CardType && CardName && ExpiredData && CardNumber) {
+		if (ExpiredData && CardNumber) {
 			if (!isUpdate) {
 				addCard({
 					bankName,
@@ -95,6 +105,7 @@ const AddForm = ({
 					str,
 					expiredData,
 					cardName,
+					amount,
 				});
 
 				setBankName('');
@@ -111,12 +122,10 @@ const AddForm = ({
 					expiredData,
 					cardName,
 					color,
+					amount,
+					income,
+					costs,
 				});
-				setBankName('');
-				setCardType('');
-				setCardNumber('');
-				setCardName('');
-				setExpiredData('');
 			}
 		}
 	};
@@ -126,16 +135,17 @@ const AddForm = ({
 			<div className="style">
 				<div className="text"> <span> Bank Name:</span> </div>
 				<div className="input">
-					<input type="text" className="form-control"
-						placeholder="Enter please..."
-						onChange={onBank}
-						value={bankName} />
+					<select name="select" className="input2" onChange={onBank} value={ bankName || 'ПриватБанк'}>
+						{banks}
+					</select>
 				</div>
 			</div>
 			<div className="style">
 				<div className="text"> <span> Card Type: </span> </div>
 				<div className="input">
-					<input type="text" className="form-control" placeholder="Enter please..." onChange={onType} value={cardType} />
+					<select name="select" className="input2" onChange={onType} value={ cardType || 'Для виплат'}>
+						{typ}
+					</select>
 				</div>
 			</div>
 			<div className="style">
@@ -153,7 +163,9 @@ const AddForm = ({
 			<div className="style">
 				<div className="text" > <span> Card Name:</span> </div>
 				<div className="input">
-					<input type="text" className="form-control" placeholder="Enter please..." onChange={onName} value={cardName}/>
+					<select name="select" className="input2" onChange={onName} value={ cardName || 'VISA'}>
+						{names}
+					</select>
 				</div>
 			</div>
 			<div className="style12" >
@@ -168,7 +180,6 @@ AddForm.propTypes = {
 	history: PropTypes.object,
 	isUpdate: PropTypes.bool,
 	item: PropTypes.object,
-	string: PropTypes.object,
 };
 const AddForm1 = withRouter(AddForm);
 export default AddForm1;

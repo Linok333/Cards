@@ -18,7 +18,6 @@ const EditPasportPage = ({
 			item = elem;
 		}
 	});
-	console.log('iteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeem', item);
 	const wer = {
 		firstName: item.firstName,
 		surName: item.surName,
@@ -28,6 +27,9 @@ const EditPasportPage = ({
 		town: item.town,
 		region: item.region,
 		image: item.image,
+		cards: item.cards,
+		cardsMain: item.cardsMain,
+		id: item.id,
 	};
 
 	return (
